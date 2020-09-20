@@ -3,9 +3,12 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
     create_table :questions do |t|
       t.string :reg_id
       t.string :question_id
-      t.string :answer_id
       t.string :content
-      t.string :datetime_required
+      t.string :answer
+      t.datetime :datetime_required
+      t.datetime :datetime_submitted
+      t.string :accepted
+      t.string :result
 
       t.timestamps
     end
