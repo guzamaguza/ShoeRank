@@ -1,23 +1,17 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :games
-  resources :regs
-  resources :questions
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "users#new"
+  root "sessions#index"
 
-  #resources :users, only: [:new, :create, :show]
-  #resources :attractions
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 
-  resources :users
-  resources :attractions
-  resources :rides
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
 
-
-  get '/signin', to: 'session#new'
-  post '/signin', to: 'session#create'
-  get '/logout' => 'users#logout', as: :logout
-  post '/rides', to: 'rides#create'
+  #resources :users
+  #resources :games
+  #resources :regs
+  #resources :questions
 
 end

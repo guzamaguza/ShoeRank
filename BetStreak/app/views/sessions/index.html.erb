@@ -1,9 +1,9 @@
 <h1>Welcome to BetStreak</h1>
 
 <% if !logged_in? %>
-  <%= link_to "Log In", "/login"  %>
+  <%= link_to "Log In", login_path  %>
 
-  <%= link_to "Sign Up", signup_path  %>
+  <%= link_to "Sign Up", '/signup'  %>
 
   <%= link_to "Log In with Google", "/auth/google_oauth2" %>
 
