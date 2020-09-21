@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
-  #resources :users
-  #resources :games
-  #resources :regs
-  #resources :questions
+  resources :users
+  resources :games
+  resources :regs
+  resources :questions
 
 end
