@@ -9,12 +9,13 @@
 
     <% if logged_in? %>
       <nav class='navbar'>
+        <%= link_to 'Homepage', root_path, class:'button'%>
+        <%= link_to 'Available Games', games_path, class:'button'%>
+        <%= link_to 'Your Stats', user_path, class:'button'%>
         <%= link_to 'Logout', '/logout', method: :delete, class:'button'%>
-        <%= link_to 'Available Games', games_path , class:'button'%>
-        <%= link_to 'Your Stats', user_path, class:'button' %>
       </nav>
     <% else %>
-      <%= link_to 'Log In', login_path %>
+      <!-- <%= link_to sessions_path %> -->
     <% end %>
 
     <div class='container'>

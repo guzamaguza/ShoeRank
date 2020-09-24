@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  #delete '/logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
   resources :games
   resources :regs
   resources :questions
+  resources :sessions
 
 end
