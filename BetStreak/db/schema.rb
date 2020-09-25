@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_09_20_062802) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "reg_id"
     t.string "q_num"
     t.string "content"
     t.string "answer"
@@ -32,18 +31,22 @@ ActiveRecord::Schema.define(version: 2020_09_20_062802) do
     t.datetime "datetime_submitted"
     t.string "accepted"
     t.string "result"
+    t.integer "reg_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reg_id"], name: "index_questions_on_reg_id"
   end
 
   create_table "regs", force: :cascade do |t|
-    t.string "user_id"
-    t.string "game_id"
     t.string "datetime_registered"
     t.string "approved"
     t.string "w_or_l"
+    t.integer "user_id"
+    t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_regs_on_game_id"
+    t.index ["user_id"], name: "index_regs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

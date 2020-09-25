@@ -1,7 +1,6 @@
 class CreateQuestions < ActiveRecord::Migration[5.2]
   def change
     create_table :questions do |t|
-      t.string :reg_id
       t.string :q_num
       t.string :content
       t.string :answer
@@ -10,6 +9,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.string :accepted
       t.string :result
 
+      t.belongs_to :reg, foreign_key: true
       t.timestamps
     end
   end
