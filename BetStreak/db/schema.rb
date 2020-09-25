@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_20_062802) do
 
   create_table "questions", force: :cascade do |t|
     t.string "reg_id"
-    t.string "question_id"
+    t.string "q_num"
     t.string "content"
     t.string "answer"
     t.datetime "datetime_required"

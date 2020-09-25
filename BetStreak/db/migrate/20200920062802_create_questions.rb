@@ -2,7 +2,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
   def change
     create_table :questions do |t|
       t.string :reg_id
-      t.string :question_id
+      t.string :q_num
       t.string :content
       t.string :answer
       t.datetime :datetime_required
