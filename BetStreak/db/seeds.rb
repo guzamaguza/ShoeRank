@@ -124,7 +124,7 @@ end
 
 def make_questions
   DATA[:questions].each do |ques|
-    Question.create(ques)
+    Question.create!(ques)
   end
 end
 

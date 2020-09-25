@@ -7428,3 +7428,61 @@ true by adding the following to your application.rb file:
   ↳ db/seeds.rb:127
 DEPRECATION WARNING: Passing the environment's name as a regular argument is deprecated and will be removed in the next Rails version. Please, use the -e option instead. (called from <main> at /home/synchronous-integer-5752/temporary/BetStreak/BetStreak/bin/rails:9)
   [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY "questions"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[36mGame Create (1.1ms)[0m  [1m[32mINSERT INTO "games" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["created_at", "2020-09-25 19:37:15.158848"], ["updated_at", "2020-09-25 19:37:15.158848"]]
+  ↳ db/seeds.rb:121
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("datetime_of_start", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["datetime_of_start", "2021-08-30 16:00:00 UTC"], ["created_at", "2020-09-25 19:37:15.165517"], ["updated_at", "2020-09-25 19:37:15.165517"]]
+  ↳ db/seeds.rb:121
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("datetime_of_end", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["datetime_of_end", ""], ["created_at", "2020-09-25 19:37:15.169873"], ["updated_at", "2020-09-25 19:37:15.169873"]]
+  ↳ db/seeds.rb:121
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "Philadelphia, Pennsylvania"], ["created_at", "2020-09-25 19:37:15.173962"], ["updated_at", "2020-09-25 19:37:15.173962"]]
+  ↳ db/seeds.rb:121
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("timezone", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["timezone", "EST"], ["created_at", "2020-09-25 19:37:15.178519"], ["updated_at", "2020-09-25 19:37:15.178519"]]
+  ↳ db/seeds.rb:121
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("match_status", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["match_status", "Upcoming"], ["created_at", "2020-09-25 19:37:15.183544"], ["updated_at", "2020-09-25 19:37:15.183544"]]
+  ↳ db/seeds.rb:121
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:121
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:127
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ db/seeds.rb:127
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:127
