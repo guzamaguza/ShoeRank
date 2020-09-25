@@ -14,6 +14,7 @@ DATA = {
   ],
 
   :questions => [
+
     [ { reg_id: '' },
       { q_num: '1' },
       { content: 'Will either team score this inning? Yes/No' },
@@ -103,7 +104,9 @@ DATA = {
       { accepted: '' },
       { result: '' }
     ]
+
   ]
+
 }
 
 def main
@@ -120,28 +123,9 @@ def make_games
 end
 
 def make_questions
-  DATA[:questions].each do |q|
-    Question.create(q)
+  DATA[:questions].each do |ques|
+    Question.create(ques)
   end
 end
-
-=begin
-def make_admin
-  DATA[:admins].each do |name|
-    User.create(name: name, admin: true, password: 'password')
-  end
-end
-
-def make_games
-  DATA[:games].each do |game|
-    new_game = Game.new
-    game.each_with_index do |attribute, i|
-      new_game.send(DATA[:game_keys][i]+"=", attribute)
-    end
-    new_game.save
-  end
-end
-
-=end
 
 main
