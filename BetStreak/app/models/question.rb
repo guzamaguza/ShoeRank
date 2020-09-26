@@ -1,3 +1,3 @@
 class Question < ApplicationRecord
-  belongs_to :reg
+  belongs_to :game
 end
