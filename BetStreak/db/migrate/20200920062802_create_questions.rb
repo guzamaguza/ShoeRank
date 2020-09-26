@@ -9,7 +9,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.string :accepted
       t.string :result
 
-      t.belongs_to :game, foreign_key: true
+      t.belongs_to :game, foreign_key: true, class_name: "Game", optional: true
       t.timestamps
     end
   end
