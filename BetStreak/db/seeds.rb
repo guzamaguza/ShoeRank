@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-  #Game.all.destroy
+  #Game.delete_all
+  #Question.delete_all
 
   @games_data_1 = [{ title: 'MLB: Atlanta Braves V. Philadelphia Phillies' }, { datetime_of_start: '2021-08-30 16:00:00 UTC' }, { datetime_of_end: '' }, { location: 'Philadelphia, Pennsylvania' }, { timezone: 'EST' },{ match_status: 'Upcoming' }]
 
-  @za = Game.create!(@games_data_1)
+  Game.create!(@games_data_1)
 
   @questions_data_1 = [
 
@@ -129,4 +130,4 @@ def make_questions
   end
 end
 
-#main
+main
