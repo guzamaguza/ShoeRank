@@ -1,0 +1,23 @@
+<h2> Register for an event now! Registration Cuts off When Game Starts! </h2>
+<h2> Available Upcoming Games: </h2>
+
+<% if @games.empty? %>
+
+    <h3 style="color:red"> There are no upcoming games/registrations! </h3>
+
+<% else %>
+
+    <% @games.each_with_index do |game, index| %>
+      <h3> <%=index + 1%>) Game: <%=game.title %></h3>
+      <h3>&nbsp;&nbsp;&nbsp; Registration Deadline: <%= game.datetime_of_start %></h3>
+      <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
+      <h3>&nbsp;&nbsp;&nbsp; Timezone: <%= game.timezone %> </h3>
+      <h3>&nbsp;&nbsp;&nbsp; Status: <%= game.match_status %> </h3>
+
+      <%= form_tag regs_path do %>
+        <%= submit_tag "Register Now"%>
+      <% end %>
+
+    <% end %>
+
+<% end %>
