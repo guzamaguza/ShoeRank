@@ -8,15 +8,17 @@
 <% else %>
 
     <% @games.each_with_index do |game, index| %>
-      <h3> <%=index + 1%>) Game: <%=game.title %></h3>
-      <h3>&nbsp;&nbsp;&nbsp; Registration Deadline: <%= game.datetime_of_start %></h3>
-      <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
-      <h3>&nbsp;&nbsp;&nbsp; Timezone: <%= game.timezone %> </h3>
-      <h3>&nbsp;&nbsp;&nbsp; Status: <%= game.match_status %> </h3>
-
-      <%= form_tag regs_path do %>
+        <%= form_for :reg do %>
+          <h3> <%=index + 1%>) Game: <%= game.title %></h3>
+          <h3>&nbsp;&nbsp;&nbsp; Registration Deadline: <%= game.datetime_of_start %></h3>
+          <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
+          <h3>&nbsp;&nbsp;&nbsp; Timezone: <%= game.timezone %> </h3>
+          <h3>&nbsp;&nbsp;&nbsp; Status: <%= game.match_status %> </h3>
+          <%= hidden_field_tag(Time.now.UTC, params["datetime_registered"]) %>
+          <%= hidden_field_tag(game.id, params["game_id"]) %>
+          <%= hidden_field_tag(current_user.id, params["user_id"]) %>
         <%= submit_tag "Register Now"%>
-      <% end %>
+        <% end %>
 
     <% end %>
 
