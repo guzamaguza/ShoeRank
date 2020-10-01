@@ -25925,3 +25925,1211 @@ app/views/games/index.html.erb:17:in `block (2 levels) in _app_views_games_index
 app/views/games/index.html.erb:11:in `block in _app_views_games_index_html_erb___2678270346050124701_70139567428600'
 app/views/games/index.html.erb:10:in `each_with_index'
 app/views/games/index.html.erb:10:in `_app_views_games_index_html_erb___2678270346050124701_70139567428600'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mGame Destroy (8.7ms)[0m  [1m[31mDELETE FROM "games"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mQuestion Destroy (1.9ms)[0m  [1m[31mDELETE FROM "questions"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("title", "datetime_of_start", "datetime_of_end", "location", "timezone", "match_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["datetime_of_start", "2021-08-30 16:00:00 UTC"], ["datetime_of_end", ""], ["location", "Philadelphia, Pennsylvania"], ["timezone", "EST"], ["match_status", "Upcoming"], ["created_at", "2020-10-01 05:47:17.692056"], ["updated_at", "2020-10-01 05:47:17.692056"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:38
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:68
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "1"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.736182"], ["updated_at", "2020-10-01 05:47:17.736182"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "2"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.740889"], ["updated_at", "2020-10-01 05:47:17.740889"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "3"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.744697"], ["updated_at", "2020-10-01 05:47:17.744697"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "4"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.748555"], ["updated_at", "2020-10-01 05:47:17.748555"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "5"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.752327"], ["updated_at", "2020-10-01 05:47:17.752327"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "6"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.755742"], ["updated_at", "2020-10-01 05:47:17.755742"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "7"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.759079"], ["updated_at", "2020-10-01 05:47:17.759079"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "8"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.762334"], ["updated_at", "2020-10-01 05:47:17.762334"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:111
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "9"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 3], ["created_at", "2020-10-01 05:47:17.766238"], ["updated_at", "2020-10-01 05:47:17.766238"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:111
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /usr/local/rvm/gems/ruby-2.6.1/gems/activesupport-5.2.4.4/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 98.35.122.28 at 2020-10-01 05:47:32 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#index as HTML
+  Rendering sessions/index.html.erb within layouts/application
+  Rendered sessions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 12ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 98.35.122.28 at 2020-10-01 05:47:32 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/signup" for 98.35.122.28 at 2020-10-01 05:47:35 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 21ms (Views: 11.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 98.35.122.28 at 2020-10-01 05:47:44 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QflQuo9eojFBz7pxdTD5CWHpH3iUtqU/ll9OeeuXM+TlHXuOb80GOewzzCYgo/5p9MMeUL6eJlVlmFb/yfatQg==", "user"=>{"username"=>"mar", "email"=>"mar@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "mar"], ["email", "mar@gmail.com"], ["password_digest", "$2a$12$SjU72WerKy9WT1ld43vwbOjLeheP.9oWFT.QDMaTcK8Seh4.BYlIq"], ["created_at", "2020-10-01 05:47:44.621566"], ["updated_at", "2020-10-01 05:47:44.621566"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://165.227.31.156:50172/users/3
+Completed 302 Found in 260ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/users/3" for 98.35.122.28 at 2020-10-01 05:47:44 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:47:47 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `UTC' for 2020-10-01 05:47:47 +0000:Time
+Did you mean?  utc?):
+    14:           <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
+    15:           <h3>&nbsp;&nbsp;&nbsp; Timezone: <%= game.timezone %> </h3>
+    16:           <h3>&nbsp;&nbsp;&nbsp; Status: <%= game.match_status %> </h3>
+    17:           <%= hidden_field_tag(Time.now.UTC, params["datetime_registered"]) %>
+    18:           <%= hidden_field_tag(game.id, params["game_id"]) %>
+    19:           <%= hidden_field_tag(current_user.id, params["user_id"]) %>
+    20:         <%= submit_tag "Register Now"%>
+  
+app/views/games/index.html.erb:17:in `block (2 levels) in _app_views_games_index_html_erb__2684517529745906362_40430080'
+app/views/games/index.html.erb:11:in `block in _app_views_games_index_html_erb__2684517529745906362_40430080'
+app/views/games/index.html.erb:10:in `each_with_index'
+app/views/games/index.html.erb:10:in `_app_views_games_index_html_erb__2684517529745906362_40430080'
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:50:09 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `UTC' for 2020-10-01 05:50:09 +0000:Time
+Did you mean?  utc?):
+    14:           <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
+    15:           <h3>&nbsp;&nbsp;&nbsp; Timezone: <%= game.timezone %> </h3>
+    16:           <h3>&nbsp;&nbsp;&nbsp; Status: <%= game.match_status %> </h3>
+    17:           <%= hidden_field(Time.now.UTC, params["datetime_registered"]) %>
+    18:           <%= hidden_field(game.id, params["game_id"]) %>
+    19:           <%= hidden_field(current_user.id, params["user_id"]) %>
+    20:         <%= submit_tag "Register Now"%>
+  
+app/views/games/index.html.erb:17:in `block (2 levels) in _app_views_games_index_html_erb__2684517529745906362_38019480'
+app/views/games/index.html.erb:11:in `block in _app_views_games_index_html_erb__2684517529745906362_38019480'
+app/views/games/index.html.erb:10:in `each_with_index'
+app/views/games/index.html.erb:10:in `_app_views_games_index_html_erb__2684517529745906362_38019480'
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:50:14 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `UTC' for 2020-10-01 05:50:14 +0000:Time
+Did you mean?  utc?):
+    14:           <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
+    15:           <h3>&nbsp;&nbsp;&nbsp; Timezone: <%= game.timezone %> </h3>
+    16:           <h3>&nbsp;&nbsp;&nbsp; Status: <%= game.match_status %> </h3>
+    17:           <%= hidden_field(Time.now.UTC, params["datetime_registered"]) %>
+    18:           <%= hidden_field(game.id, params["game_id"]) %>
+    19:           <%= hidden_field(current_user.id, params["user_id"]) %>
+    20:         <%= submit_tag "Register Now"%>
+  
+app/views/games/index.html.erb:17:in `block (2 levels) in _app_views_games_index_html_erb__2684517529745906362_35490580'
+app/views/games/index.html.erb:11:in `block in _app_views_games_index_html_erb__2684517529745906362_35490580'
+app/views/games/index.html.erb:10:in `each_with_index'
+app/views/games/index.html.erb:10:in `_app_views_games_index_html_erb__2684517529745906362_35490580'
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:50:22 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `UTC' for 2020-10-01 05:50:22 +0000:Time
+Did you mean?  utc?):
+    14:           <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
+    15:           <h3>&nbsp;&nbsp;&nbsp; Timezone: <%= game.timezone %> </h3>
+    16:           <h3>&nbsp;&nbsp;&nbsp; Status: <%= game.match_status %> </h3>
+    17:           <%= hidden_field(Time.now.UTC, params["datetime_registered"]) %>
+    18:           <%= hidden_field(game.id, params["game_id"]) %>
+    19:           <%= hidden_field(current_user.id, params["user_id"]) %>
+    20:         <%= submit_tag "Register Now"%>
+  
+app/views/games/index.html.erb:17:in `block (2 levels) in _app_views_games_index_html_erb__2684517529745906362_70236103613280'
+app/views/games/index.html.erb:11:in `block in _app_views_games_index_html_erb__2684517529745906362_70236103613280'
+app/views/games/index.html.erb:10:in `each_with_index'
+app/views/games/index.html.erb:10:in `_app_views_games_index_html_erb__2684517529745906362_70236103613280'
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:52:10 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:52:13 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dpkuh5WTJ1FTgerHgjJfNuLQg8qv+iG2kZ/fipqEgzpauf4MRyWVWSZ9bTsaGMJgB/RzLk3bX5MWoFIrQQ7Htg==", "2020-10-01 05:52:10 UTC"=>[""], "3"=>["", ""], "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :2020-10-01 05:52:10 UTC, :3, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 107930ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:54:01 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:54:05 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"atSlaH8JWurkMBWvVa0EYijroeEqokzdMYkL5RPk/7ZG9HXjrb/o4pHMklPNh5k0zc9RBciDMvi2toZEyG67Og==", "2020-10-01 05:54:01 UTC"=>"", "3"=>"", "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :2020-10-01 05:54:01 UTC, :3, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 52507ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:54:57 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:56:45 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 23ms (Views: 10.1ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:56:46 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qVFz4OjVxs2IxSdDBeJyUnX73xqIQtN7ztNKe3SlcVKFcaNrOmN0xf05oL+dyO8EkN8v/mpjrV5J7Mfary813g==", "2020-10-01 05:56:45 UTC"=>"", "3"=>"", "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :2020-10-01 05:56:45 UTC, :3, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 13ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:56:46 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:57:53 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 21ms (Views: 9.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:57:54 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YKhFcr3IX+Z0e1vtehOKi/uLY8zNQwS8Vrg26/uP3kVMiJX5b37t7gGH3BHiORfdHq+TKC9iepnRh7tKIAWayQ==", "2020-10-01 05:57:53 UTC"=>"", "3"=>"", "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: reg):
+  
+app/controllers/regs_controller.rb:19:in `reg_params'
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:58:31 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YKhFcr3IX+Z0e1vtehOKi/uLY8zNQwS8Vrg26/uP3kVMiJX5b37t7gGH3BHiORfdHq+TKC9iepnRh7tKIAWayQ==", "2020-10-01 05:57:53 UTC"=>"", "3"=>"", "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: reg):
+  
+app/controllers/regs_controller.rb:19:in `reg_params'
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:58:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YKhFcr3IX+Z0e1vtehOKi/uLY8zNQwS8Vrg26/uP3kVMiJX5b37t7gGH3BHiORfdHq+TKC9iepnRh7tKIAWayQ==", "2020-10-01 05:57:53 UTC"=>"", "3"=>"", "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: reg):
+  
+app/controllers/regs_controller.rb:19:in `reg_params'
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:59:08 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YKhFcr3IX+Z0e1vtehOKi/uLY8zNQwS8Vrg26/uP3kVMiJX5b37t7gGH3BHiORfdHq+TKC9iepnRh7tKIAWayQ==", "2020-10-01 05:57:53 UTC"=>"", "3"=>"", "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :2020-10-01 05:57:53 UTC, :3, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 22ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:59:08 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:59:10 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jeNhaxP107ZOHDJut2crT3t6EUNlfMYTjLDQ7faoZ4ehw7HgwUNhvjvgtZIvTbYZnl7hp4dduDYLj11MLSIjCw==", "datetime_registered"=>{"2020-10-01 05:59:08 UTC"=>""}, "game_id"=>{"3"=>""}, "user_id"=>{"3"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:59:10 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 05:59:12 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pkfoslucOB6UjJuvkMOzuCS1az58mWzC14KJD4fartaKZzg5iSqKFuFwHFMI6S7uwZGb2p64EudQvQSuXFDqWg==", "datetime_registered"=>{"2020-10-01 05:59:10 UTC"=>""}, "game_id"=>{"3"=>""}, "user_id"=>{"3"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 05:59:12 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:05:33 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S6GtU3FJUa0fZ6cZiyRbpmaG0rGId8EYX6XTqvH75CBngX3Yo//jpWqbIOUTDsbwg6IiVWpWvz3Yml4LKnGgrA==", "datetime_registered"=>{"2020-10-01 05:59:12 UTC"=>""}, "game_id"=>{"3"=>""}, "user_id"=>{"3"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 77276ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:06:50 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:06:53 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ThHQgoHVJK5bDt19kxBHtzIZTej4D/Dem0B2zEd82vhiMQAJU2OWpi7yWoELOtrh1z29DBoujvscf/ttnPaedA==", "2020-10-01 06:06:50 UTC"=>{"datetime_registered"=>""}, "3"=>{"game_id"=>"", "user_id"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :2020-10-01 06:06:50 UTC, :3, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 117946ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:08:51 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:08:53 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:08:55 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PYeWn9k6s9rLAMli5HcZHFTU6sh0/QIgJ42jT8pqrKcRp0YUC4wB0r78Tp58XYRKsfAaLJbcfAWgsi7uEeDoKw==", "datetime_registered"=>{"2020-10-01 06:08:53 UTC"=>""}, "game_id"=>{"3"=>""}, "user_id"=>{"3"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 78152ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:10:13 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:10:18 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:10:19 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DZKK9/I47kiEfi6jh6qI0fMSVrzF8mA2UOBLcgMhHbwhslp8II5cQPGCqV8fgBWHFjamWCfTHhPX38bT2KtZMA==", "datetime_registered"=>{"{:value=>2020-10-01 06:10:18 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:11:08 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DZKK9/I47kiEfi6jh6qI0fMSVrzF8mA2UOBLcgMhHbwhslp8II5cQPGCqV8fgBWHFjamWCfTHhPX38bT2KtZMA==", "datetime_registered"=>{"{:value=>2020-10-01 06:10:18 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 48695ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:11:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:12:08 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 140703ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:12:40 +0000
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:12:40 +0000
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:12:40 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 24ms (Views: 10.7ms | ActiveRecord: 1.8ms)
+
+
+Processing by RegsController#create as HTML
+Processing by RegsController#create as HTML
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YtZP0MV1ffF6PSjMVPaN+/NUcLwnQCuZjfU7lIE4tDBO9p9bF8PP+Q/BrzDM3BCtFnCAWMVhVbwKyrY1WrLwvA==", "datetime_registered"=>{"{:value=>2020-10-01 06:11:56 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YtZP0MV1ffF6PSjMVPaN+/NUcLwnQCuZjfU7lIE4tDBO9p9bF8PP+Q/BrzDM3BCtFnCAWMVhVbwKyrY1WrLwvA==", "datetime_registered"=>{"{:value=>2020-10-01 06:11:56 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YtZP0MV1ffF6PSjMVPaN+/NUcLwnQCuZjfU7lIE4tDBO9p9bF8PP+Q/BrzDM3BCtFnCAWMVhVbwKyrY1WrLwvA==", "datetime_registered"=>{"{:value=>2020-10-01 06:11:56 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  ↳ app/controllers/application_controller.rb:8
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  ↳ app/controllers/regs_controller.rb:9
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+Redirected to http://165.227.31.156:50172/games
+  ↳ app/controllers/regs_controller.rb:9
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 33ms (ActiveRecord: 0.5ms)
+
+
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 36ms (ActiveRecord: 0.2ms)
+
+
+Completed 302 Found in 33ms (ActiveRecord: 1.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /usr/local/rvm/gems/ruby-2.6.1/gems/activesupport-5.2.4.4/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 98.35.122.28 at 2020-10-01 06:12:51 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#index as HTML
+  Rendering sessions/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:12:54 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 39ms (Views: 27.0ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:12:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fqxaO/mD70W2Z5SAiu8Rs56COdRhkuzRtE0xxfiaKSJSjIqwKzVdTcObE3wSxYzle6bJMIOzkvQzcrxkIxBtrg==", "datetime_registered"=>{"{:value=>2020-10-01 06:12:54 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 36ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:12:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 27ms (Views: 4.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:12:58 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vDdG98L2oAp8HgY72Uwv2jXtwRqtM/03Wo/jCAaHljSQF5Z8EEASAgnigcdBZrKM0Mkx/k8SgxLdsG6p3Q3SuA==", "datetime_registered"=>{"{:value=>2020-10-01 06:12:56 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:9
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:12:58 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:13:33 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 33ms (Views: 20.9ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:13:35 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hc4+Snl9XeDEzb0lJrTvNs38x0BjW2KNQrFDoes4d+Mx7u7Bq8vv6LExOtm+nnJgKNg3pIF6HKjFjs4AMLIzbw==", "datetime_registered"=>{"{:value=>2020-10-01 06:13:33 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 30264ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:14:05 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 25ms (Views: 11.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:14:08 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:14:09 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X11520y1p0g1oQIIdBkiXK7fKtDkCHAgrRBROoz7ftBzfalQngMVQEBdhfTsM78KS/vaNAYpDgUqL9ybV3E6XA==", "datetime_registered"=>{"{:value=>2020-10-01 06:14:08 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: reg):
+  
+app/controllers/regs_controller.rb:20:in `reg_params'
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:14:21 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X11520y1p0g1oQIIdBkiXK7fKtDkCHAgrRBROoz7ftBzfalQngMVQEBdhfTsM78KS/vaNAYpDgUqL9ybV3E6XA==", "datetime_registered"=>{"{:value=>2020-10-01 06:14:08 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 400 Bad Request in 12ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: game):
+  
+app/controllers/regs_controller.rb:20:in `reg_params'
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:14:34 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X11520y1p0g1oQIIdBkiXK7fKtDkCHAgrRBROoz7ftBzfalQngMVQEBdhfTsM78KS/vaNAYpDgUqL9ybV3E6XA==", "datetime_registered"=>{"{:value=>2020-10-01 06:14:08 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 400 Bad Request in 11ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: params):
+  
+app/controllers/regs_controller.rb:20:in `reg_params'
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:16:03 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X11520y1p0g1oQIIdBkiXK7fKtDkCHAgrRBROoz7ftBzfalQngMVQEBdhfTsM78KS/vaNAYpDgUqL9ybV3E6XA==", "datetime_registered"=>{"{:value=>2020-10-01 06:14:08 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:18:22 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X11520y1p0g1oQIIdBkiXK7fKtDkCHAgrRBROoz7ftBzfalQngMVQEBdhfTsM78KS/vaNAYpDgUqL9ybV3E6XA==", "datetime_registered"=>{"{:value=>2020-10-01 06:14:08 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.6ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:18:26 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X11520y1p0g1oQIIdBkiXK7fKtDkCHAgrRBROoz7ftBzfalQngMVQEBdhfTsM78KS/vaNAYpDgUqL9ybV3E6XA==", "datetime_registered"=>{"{:value=>2020-10-01 06:14:08 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/regs_controller.rb:8:in `create'
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:18:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X11520y1p0g1oQIIdBkiXK7fKtDkCHAgrRBROoz7ftBzfalQngMVQEBdhfTsM78KS/vaNAYpDgUqL9ybV3E6XA==", "datetime_registered"=>{"{:value=>2020-10-01 06:14:08 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 42ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:18:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:18:57 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WqS5Xpp79tUUldVo0vUVSRvkCGHzkIUf/UJJzRt4ljB2hGnVSM1E3WFpUpRK34gf/sD4hRGx+zp6fcRswPLSvA==", "datetime_registered"=>{"{:value=>2020-10-01 06:18:56 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:18:57 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:18:59 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K/8D5hrDmsHKNEehBCVOkYv2/rr2ta1TrrAInORdxkgH39NtyHUoyb/IwF2cD9PHbtIOXhSU03Ypj4U9P9eCxA==", "datetime_registered"=>{"{:value=>2020-10-01 06:18:57 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:18:59 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:19:32 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O12BpMjXSNBYle4UIJGNoaA3vqDLFZiIZTbEFSHAJfoXfVEvGmH62C1paei4uxD3RRNORCk05q3iCUm0+kphdg==", "datetime_registered"=>{"{:value=>2020-10-01 06:18:59 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameters: :utf8, :authenticity_token, :datetime_registered, :game_id, :user_id, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 42660ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:20:15 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 22ms (Views: 9.6ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:20:17 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wvf6pC0rvzWYhP4JmkXuw26NX7ApyE8n0QS+PvPV34vu1yov/50NPe14efUCb3OVi6mvVMvpMQJWOzOfKF+bBw==", "datetime_registered"=>{"{:value=>2020-10-01 06:20:15 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameter: :{:value=>2020-10-01 06:20:15 UTC}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 4861ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:20:22 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:20:31 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 23ms (Views: 10.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/games" for 98.35.122.28 at 2020-10-01 06:20:32 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KPHOYXSv1lkgKZGeH08F+dd7QJae6gleV8FnQ6gD8JIE0R7qphlkUVXVFmKHZZivMl+wcnzLd3vQ/uric4m0Hg==", "datetime_registered"=>{"{:value=>2020-10-01 06:20:31 UTC}"=>""}, "game_id"=>{"{:value=>3}"=>""}, "user_id"=>{"{:value=>3}"=>""}, "commit"=>"Register Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Unpermitted parameter: :{:value=>2020-10-01 06:20:31 UTC}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/regs_controller.rb:10
+Redirected to http://165.227.31.156:50172/games
+Completed 302 Found in 13ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-01 06:20:32 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:10
+  Rendered games/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+
+

@@ -6,7 +6,7 @@ class RegsController < ApplicationController
 
   def create
      @reg = current_user.regs.build(reg_params)
-binding.pry
+
      if @reg.save
       redirect_to reg_path(@reg)
      else
@@ -17,7 +17,7 @@ binding.pry
   private
 
   def reg_params
-     params.permit(:datetime_registered, :user_id, :game_id)
+     params.require(:datetime_registered).permit(:datetime_registered, :user_id, :game_id)
   end
 
 end

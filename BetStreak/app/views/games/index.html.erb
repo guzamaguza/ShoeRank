@@ -14,9 +14,9 @@
           <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
           <h3>&nbsp;&nbsp;&nbsp; Timezone: <%= game.timezone %> </h3>
           <h3>&nbsp;&nbsp;&nbsp; Status: <%= game.match_status %> </h3>
-          <%= hidden_field_tag(Time.now.UTC, params["datetime_registered"]) %>
-          <%= hidden_field_tag(game.id, params["game_id"]) %>
-          <%= hidden_field_tag(current_user.id, params["user_id"]) %>
+          <%= hidden_field("datetime_registered", :value =>Time.now.utc) %>
+          <%= hidden_field("game_id", :value =>game.id) %>
+          <%= hidden_field("user_id", :value =>current_user.id) %>
         <%= submit_tag "Register Now"%>
         <% end %>
 
