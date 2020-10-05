@@ -8,7 +8,7 @@
 <% else %>
 
     <% @games.each_with_index do |game, index| %>
-        <%= form_for :reg do %>
+        <%= form_for @reg do %>
           <h3> <%=index + 1%>) Game: <%= game.title %></h3>
           <h3>&nbsp;&nbsp;&nbsp; Registration Deadline: <%= game.datetime_of_start %></h3>
           <h3>&nbsp;&nbsp;&nbsp; Location: <%= game.location %> </h3>
