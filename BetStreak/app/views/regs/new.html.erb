@@ -1,0 +1,23 @@
+<h1> Register for an Event! </h1>
+
+<%= form_for [@game,@reg] do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :feeling %>
+  <%= f.text_field :feeling %>
+
+  <br></br>
+
+  <%= f.label :race_id %>
+  <%= f.collection_select :race_id, current_user.races, :id, :title    %>
+
+  <br></br>
+
+  <%= workout_form_option(f) %>
+
+  <%= f.submit%>
+
+
+<% end %>
