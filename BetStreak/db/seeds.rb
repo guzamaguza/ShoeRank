@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+  Contest.delete_all
   Game.delete_all
   Question.delete_all
+
+  @contest_data_1 = [ title: 'Braves V. Phillies (MLB)', points: '200',  status: '' ]
+  @contest_1 = Contest.create!(@contest_data_1)
 
   @game_data_1 = [ title: 'MLB: Atlanta Braves V. Philadelphia Phillies', datetime_of_start: '2021-08-30 16:00:00 UTC',  datetime_of_end: '' ,  location: 'Philadelphia, Pennsylvania' ,  timezone: 'EST' , match_status: 'Upcoming' ]
   @game_1 = Game.create!(@game_data_1)

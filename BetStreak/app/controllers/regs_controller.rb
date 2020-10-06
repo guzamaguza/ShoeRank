@@ -14,6 +14,12 @@ class RegsController < ApplicationController
      end
   end
 
+=begin
+  def index
+    @regs = Reg.all
+  end
+=end
+
   private
 
   def reg_params

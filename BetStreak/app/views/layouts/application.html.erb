@@ -11,6 +11,7 @@
       <nav class='navbar'>
         <%= link_to 'Homepage', root_path, class:'button'%>
         <%= link_to 'Available Games', games_path, class:'button'%>
+        <%= link_to 'Register Now', regs_path, class:'button'%>
         <%= link_to 'Your Stats', user_path(current_user.id), class:'button'%>
         <%= link_to 'Logout', '/logout', method: :delete, class:'button'%>
       </nav>
