@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :regs
   resources :questions
   resources :sessions
+  resources :contests
 
 end
