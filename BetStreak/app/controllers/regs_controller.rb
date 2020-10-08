@@ -1,7 +1,9 @@
 class RegsController < ApplicationController
 
   def new
-    @reg = Reg.new
+      @reg = Reg.new
+      @contests = Contest.all
+      @games = Game.all
   end
 
   def create

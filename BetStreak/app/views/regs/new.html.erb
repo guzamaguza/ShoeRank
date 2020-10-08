@@ -1,23 +1,17 @@
 <h1> Register for an Event! </h1>
 
-<%= form_for [@game,@reg] do |f| %>
+<%= render partial: "layouts/errors", locals: { object: @reg } %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= form_for @reg do |f| %>
 
-  <%= f.label :feeling %>
-  <%= f.text_field :feeling %>
-
+  <%= f.label :contest_id %>
+  <% f.collection_select(:contest_id, @contests, :id, :title, :stakes, :status) %>
+  
   <br></br>
 
-  <%= f.label :race_id %>
-  <%= f.collection_select :race_id, current_user.races, :id, :title    %>
-
-  <br></br>
-
-  <%= workout_form_option(f) %>
+  <%= f.label :game_id %>
+  <%= f.collection_select :game_id, @games, :id, :datetime_of_start, :location  %>
 
   <%= f.submit%>
-
 
 <% end %>
