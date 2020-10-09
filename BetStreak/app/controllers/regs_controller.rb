@@ -16,16 +16,10 @@ class RegsController < ApplicationController
      end
   end
 
-=begin
-  def index
-    @regs = Reg.all
-  end
-=end
-
   private
 
   def reg_params
-     params.require(:reg).permit(:datetime_registered, :user_id, :game_id)
+     params.require(:reg).permit(:datetime_registered, :contest_id, :game_id)
   end
 
 end

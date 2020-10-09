@@ -5,12 +5,12 @@
 <%= form_for @reg do |f| %>
 
   <%= f.label :contest_id %>
-  <% f.collection_select(:contest_id, @contests, :id, :title, :stakes, :status) %>
-  
+  <% f.collection_select :contest_id, @contests, :id, :stakes %>
+
   <br></br>
 
   <%= f.label :game_id %>
-  <%= f.collection_select :game_id, @games, :id, :datetime_of_start, :location  %>
+  <%= f.collection_select :game_id, @games, :id, :title %>
 
   <%= f.submit%>
 
