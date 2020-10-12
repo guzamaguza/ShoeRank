@@ -19,7 +19,7 @@ class RegsController < ApplicationController
   private
 
   def reg_params
-     params.require(:reg).permit(:datetime_registered, :contest_id, :game_id)
+     params.require(:reg).permit(:datetime_registered, :contest_id, :game_id, :user_id)
   end
 
 end

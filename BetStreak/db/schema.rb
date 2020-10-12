@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2020_10_06_044032) do
 
   create_table "contests", force: :cascade do |t|
-    t.string "title"
     t.string "stakes"
     t.string "status"
     t.datetime "created_at", null: false
@@ -49,12 +48,14 @@ ActiveRecord::Schema.define(version: 2020_10_06_044032) do
     t.string "datetime_registered"
     t.string "approved"
     t.string "w_or_l"
+    t.integer "user_id"
     t.integer "contest_id"
     t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["contest_id"], name: "index_regs_on_contest_id"
     t.index ["game_id"], name: "index_regs_on_game_id"
+    t.index ["user_id"], name: "index_regs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

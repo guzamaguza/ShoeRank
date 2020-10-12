@@ -10,13 +10,13 @@
   Game.delete_all
   Question.delete_all
 
-  @contest_data_1 = [ title: 'Braves V. Phillies (Single Match, MLB)', stakes: 'high',  status: '' ]
+  @contest_data_1 = [stakes: 'high',  status: '' ]
   @contest_1 = Contest.create!(@contest_data_1)
 
-  @contest_data_2 = [ title: 'Braves V. Phillies (Single Match, MLB)', stakes: 'med',  status: '' ]
+  @contest_data_2 = [stakes: 'med',  status: '' ]
   @contest_2 = Contest.create!(@contest_data_2)
 
-  @contest_data_3 = [ title: 'Braves V. Phillies (Single Match, MLB)', stakes: 'low',  status: '' ]
+  @contest_data_3 = [stakes: 'low',  status: '' ]
   @contest_3 = Contest.create!(@contest_data_3)
 
   @game_data_1 = [ title: 'MLB: Atlanta Braves V. Philadelphia Phillies', datetime_of_start: '2021-08-30 16:00:00 UTC',  datetime_of_end: '' ,  location: 'Philadelphia, Pennsylvania' ,  timezone: 'EST' , match_status: 'Upcoming' ]

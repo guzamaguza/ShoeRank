@@ -5,7 +5,7 @@
 <%= form_for @reg do |f| %>
 
   <%= f.label :contest_id %>
-  <% f.collection_select :contest_id, @contests, :id, :stakes %>
+  <%= f.collection_select :contest_id, @contests, :id, :stakes %>
 
   <br></br>
 
