@@ -12,6 +12,8 @@
   <%= f.label :game_id %>
   <%= f.collection_select :game_id, @games, :id, :title %>
 
+  <%= f.hidden_field :datetime_registered, value: Time.now.utc %>
+
   <%= f.submit%>
 
 <% end %>

@@ -10,10 +10,15 @@ class RegsController < ApplicationController
      @reg = current_user.regs.build(reg_params)
 
      if @reg.save
+      #@game = @reg.game
       redirect_to reg_path(@reg)
      else
       redirect_to games_path
      end
+  end
+
+  def show
+    @reg = Reg.find_by(id: params[:id])
   end
 
   private
