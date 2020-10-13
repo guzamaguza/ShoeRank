@@ -1,9 +1,13 @@
 class RegsController < ApplicationController
 
+  def index
+    @regs = current_user.regs
+  end
+
   def new
-      @reg = Reg.new
-      @contests = Contest.all
-      @games = Game.all
+    @reg = Reg.new
+    @contests = Contest.all
+    @games = Game.all
   end
 
   def create

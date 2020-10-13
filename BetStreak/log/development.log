@@ -34020,3 +34020,1178 @@ DEPRECATION WARNING: Passing the environment's name as a regular argument is dep
   [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mReg Destroy (6.0ms)[0m  [1m[31mDELETE FROM "regs"[0m
   [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" LIMIT ?[0m  [["LIMIT", 11]]
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /usr/local/rvm/gems/ruby-2.6.1/gems/activesupport-5.2.4.4/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 98.35.122.28 at 2020-10-13 02:59:43 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#index as HTML
+  Rendering sessions/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 36ms (Views: 28.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/favicon.ico" for 98.35.122.28 at 2020-10-13 02:59:44 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/regs/new" for 98.35.122.28 at 2020-10-13 03:00:23 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/new.html.erb within layouts/application
+  Rendered layouts/_errors.html.erb (0.4ms)
+  [1m[36mContest Load (0.2ms)[0m  [1m[34mSELECT "contests".* FROM "contests"[0m
+  ↳ app/views/regs/new.html.erb:8
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/regs/new.html.erb:13
+  Rendered regs/new.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 42ms (Views: 21.5ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/regs" for 98.35.122.28 at 2020-10-13 03:00:25 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ooueNGOlxGm9YcC1Cb8K+vyGGb85Bumli1mjXJ56i1dph/YNBP7bZAlBBeLbqC2e6I7xqrVTO+iiNIsU5e5eRQ==", "reg"=>{"contest_id"=>"1", "game_id"=>"1", "datetime_registered"=>"2020-10-13 03:00:23 UTC"}, "commit"=>"Create Reg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:12
+  [1m[36mContest Load (0.2ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:12
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:12
+  [1m[36mReg Create (0.6ms)[0m  [1m[32mINSERT INTO "regs" ("datetime_registered", "user_id", "contest_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["datetime_registered", "2020-10-13 03:00:23 UTC"], ["user_id", 1], ["contest_id", 1], ["game_id", 1], ["created_at", "2020-10-13 03:00:25.784203"], ["updated_at", "2020-10-13 03:00:25.784203"]]
+  ↳ app/controllers/regs_controller.rb:12
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/regs_controller.rb:12
+Redirected to http://178.128.177.30:55211/regs/4
+Completed 302 Found in 72ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 03:00:25 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:21
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<Reg:0x00007f22b8255508>):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.title %></h3>
+    4:   <h3> Game Start: <%= @game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @game.location %> </h3>
+    6:   <h3> Timezone: <%= @game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893547532820'
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 03:00:50 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:21
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `datetime_of_start' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg %></h3>
+    4:   <h3> Game Start: <%= @game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @game.location %> </h3>
+    6:   <h3> Timezone: <%= @game.timezone %> </h3>
+    7:   <h3> Status: <%= @game.match_status %> </h3>
+  
+app/views/regs/show.html.erb:4:in `_app_views_regs_show_html_erb___4580677036178482807_36616240'
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 03:01:02 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:21
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 03:01:24 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:21
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:4
+  Rendered regs/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 03:06:21 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:21
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:3
+  Rendered regs/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-13 03:06:32 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:06:34 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  Rendered regs/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 03:07:49 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:21
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:3
+  Rendered regs/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 03:21:31 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:21
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:3
+  Rendered regs/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/info/routes" for 98.35.122.28 at 2020-10-13 03:26:23 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::InfoController#routes as HTML
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/railties-5.2.4.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [59 times] (9.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/railties-5.2.4.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 03:28:52 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:3
+  Rendered regs/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 30ms (Views: 11.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:28:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:10
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:12
+  Rendered regs/index.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"regs"}, missing required keys: [:id]):
+    15:     Timezone: <%= reg.game.timezone %>
+    16:     Status: <%= reg.game.match_status %>
+    17: 
+    18:     <%= link_to "Registration Page", reg_path()%>
+    19:   </li>
+    20: 
+    21:   <% end %>
+  
+app/views/regs/index.html.erb:18:in `block in _app_views_regs_index_html_erb___4372054999664629001_69893550163840'
+app/views/regs/index.html.erb:10:in `_app_views_regs_index_html_erb___4372054999664629001_69893550163840'
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:29:09 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:10
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:12
+  Rendered regs/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"regs"}, missing required keys: [:id]):
+    15:     Timezone: <%= reg.game.timezone %>
+    16:     Status: <%= reg.game.match_status %>
+    17: 
+    18:     <%= link_to "Registration Page", reg_path%>
+    19:   </li>
+    20: 
+    21:   <% end %>
+  
+app/views/regs/index.html.erb:18:in `block in _app_views_regs_index_html_erb___4372054999664629001_69893549857300'
+app/views/regs/index.html.erb:10:in `_app_views_regs_index_html_erb___4372054999664629001_69893549857300'
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:32:30 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:10
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:12
+  Rendered regs/index.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"regs"}, missing required keys: [:id]):
+    15:     Timezone: <%= reg.game.timezone %>
+    16:     Status: <%= reg.game.match_status %>
+    17: 
+    18:     <%= link_to "Registration Page", reg_path() %>
+    19:   </li>
+    20: 
+    21:   <% end %>
+  
+app/views/regs/index.html.erb:18:in `block in _app_views_regs_index_html_erb___4372054999664629001_69893549542140'
+app/views/regs/index.html.erb:10:in `_app_views_regs_index_html_erb___4372054999664629001_69893549542140'
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:33:08 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"regs"}, missing required keys: [:id]):
+     9:     Timezone: <%= reg.game.timezone %>
+    10:     Status: <%= reg.game.match_status %>
+    11: 
+    12:     <%= link_to "Registration Page", reg_path %>
+    13:   </li>
+    14: 
+    15:   <% end %>
+  
+app/views/regs/index.html.erb:12:in `block in _app_views_regs_index_html_erb___4372054999664629001_69893549228220'
+app/views/regs/index.html.erb:4:in `_app_views_regs_index_html_erb___4372054999664629001_69893549228220'
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:34:16 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:34:46 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:4
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:36:33 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:4
+  Rendered regs/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `index' for #<Reg:0x00007f22b865ab08>):
+    2: 
+    3:   <ul>
+    4:   <% @regs.each do |reg| %>
+    5:     <%= reg.index %>
+    6:     <li>
+    7:       Game: <%=reg.game.title %><br>
+    8:       Game Start: <%= reg.game.datetime_of_start %><br>
+  
+app/views/regs/index.html.erb:5:in `block in _app_views_regs_index_html_erb___4372054999664629001_69893549569440'
+app/views/regs/index.html.erb:4:in `_app_views_regs_index_html_erb___4372054999664629001_69893549569440'
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:37:16 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:8
+  Rendered regs/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:37:45 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  Rendered regs/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms)
+
+
+  
+SyntaxError (/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views/regs/index.html.erb:6: syntax error, unexpected ')', expecting end
+...t_buffer.append=( index + 1 ) );@output_buffer.safe_append='
+...                              ^
+/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views/regs/index.html.erb:20: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/regs/index.html.erb:6: syntax error, unexpected ')', expecting end
+app/views/regs/index.html.erb:20: syntax error, unexpected ensure, expecting end-of-input
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:38:00 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  Rendered regs/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+SyntaxError (/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views/regs/index.html.erb:6: syntax error, unexpected ')'
+...t_buffer.append=( index + 1 + ) );@output_buffer.safe_append...
+...                              ^
+/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views/regs/index.html.erb:16: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views/regs/index.html.erb:20: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views/regs/index.html.erb:22: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/regs/index.html.erb:6: syntax error, unexpected ')'
+app/views/regs/index.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/regs/index.html.erb:20: syntax error, unexpected ensure, expecting ')'
+app/views/regs/index.html.erb:22: syntax error, unexpected end, expecting ')'
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:38:14 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  Rendered regs/index.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (String can't be coerced into Integer):
+    3:   <ul>
+    4:   <% index = 0 %>
+    5:   <% @regs.each do |reg| %>
+    6:     <%= index + 1 + ")" %>
+    7:     <li>
+    8:       Game: <%=reg.game.title %><br>
+    9:       Game Start: <%= reg.game.datetime_of_start %><br>
+  
+app/views/regs/index.html.erb:6:in `+'
+app/views/regs/index.html.erb:6:in `block in _app_views_regs_index_html_erb___4372054999664629001_69893548712320'
+app/views/regs/index.html.erb:5:in `_app_views_regs_index_html_erb___4372054999664629001_69893548712320'
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:38:46 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:8
+  Rendered regs/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:39:01 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:8
+  Rendered regs/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:39:52 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:8
+  Rendered regs/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:40:16 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:40:32 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:40:33 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 03:41:27 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:42:20 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893549717660'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:42:25 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893548401040'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:45:09 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893547506200'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:47:02 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_38734900'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:57:05 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893547678760'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:57:15 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893515770300'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:57:22 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_36613160'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:57:58 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_32043500'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:59:01 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893550627280'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:59:24 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893550067960'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:59:26 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893549297780'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 03:59:36 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  Rendered regs/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2: 
+    3:   <h3> Game: <%=@reg.game.title %></h3>
+    4:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    5:   <h3> Location: <%= @reg.game.location %> </h3>
+    6:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893548522780'
+Started GET "/regs/id" for 98.35.122.28 at 2020-10-13 04:00:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 04:02:24 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  Rendered regs/show.html.erb within layouts/application (161141.2ms)
+Completed 500 Internal Server Error in 161145ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `game' for nil:NilClass):
+    1: <h1> Reg Shown Below: <h1>
+    2:   <h3> Game: <%=@reg.game.title %></h3>
+    3:   <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+    4:   <h3> Location: <%= @reg.game.location %> </h3>
+    5:   <h3> Timezone: <%= @reg.game.timezone %> </h3>
+    6:   <h3> Status: <%= @reg.game.match_status %> </h3>
+  
+app/views/regs/show.html.erb:3:in `_app_views_regs_show_html_erb___4580677036178482807_69893547925320'
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 04:03:37 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 04:03:37 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/games" for 98.35.122.28 at 2020-10-13 04:03:37 +0000
+Processing by RegsController#index as HTML
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by RegsController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  ↳ app/views/regs/index.html.erb:6
+  ↳ app/controllers/application_controller.rb:8
+  Rendered regs/index.html.erb within layouts/application (72974.6ms)
+Completed 200 OK in 72981ms (Views: 72977.0ms | ActiveRecord: 1.4ms)
+
+
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.3ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering regs/index.html.erb within layouts/application
+  ↳ app/views/regs/index.html.erb:6
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered regs/index.html.erb within layouts/application (4.6ms)
+  ↳ app/views/regs/index.html.erb:5
+Completed 200 OK in 24ms (Views: 9.1ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 19ms (Views: 8.8ms | ActiveRecord: 0.5ms)
+
+
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.5ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /usr/local/rvm/gems/ruby-2.6.1/gems/activesupport-5.2.4.4/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 98.35.122.28 at 2020-10-13 04:03:51 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#index as HTML
+  Rendering sessions/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 36ms (Views: 28.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 04:03:54 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 52ms (Views: 21.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 04:03:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:2
+  Rendered regs/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-13 04:05:30 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/index.html.erb within layouts/application
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/regs/index.html.erb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/index.html.erb:6
+  Rendered regs/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/regs/4" for 98.35.122.28 at 2020-10-13 04:05:31 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:25
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:2
+  Rendered regs/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-13 04:05:33 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:05:36 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:09:51 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 13ms (Views: 2.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:10:23 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:10:40 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:10:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:11:23 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:11:34 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:11:53 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-13 04:12:57 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+

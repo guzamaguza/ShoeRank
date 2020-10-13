@@ -1,7 +1,6 @@
-<h1> Reg Shown Below: <h1>
-
-  <h3> Game: <%=@reg.title %></h3>
-  <h3> Game Start: <%= @game.datetime_of_start %></h3>
-  <h3> Location: <%= @game.location %> </h3>
-  <h3> Timezone: <%= @game.timezone %> </h3>
-  <h3> Status: <%= @game.match_status %> </h3>
+<h1> Registration Shown Below: <h1>
+  <h3> Game: <%=@reg.game.title %></h3>
+  <h3> Game Start: <%= @reg.game.datetime_of_start %></h3>
+  <h3> Location: <%= @reg.game.location %> </h3>
+  <h3> Timezone: <%= @reg.game.timezone %> </h3>
+  <h3> Status: <%= @reg.game.match_status %> </h3>

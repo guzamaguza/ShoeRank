@@ -1,1 +1,7 @@
-<h1>Welcome <%=@user.username%></h1>
+<h1>Welcome <%=@user.username%>!!!</h1>
+
+<h1> Your Stats:<h1>
+  <ul>
+    <li> Total Wins: <%= current_user.win_count%></li>
+    <li> Total Points: <%= current_user.total_points%></li>
+  </ul>
