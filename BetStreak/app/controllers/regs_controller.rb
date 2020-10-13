@@ -13,6 +13,12 @@ class RegsController < ApplicationController
   def create
      @reg = current_user.regs.build(reg_params)
 
+     if @reg.datetime_registered < @reg.game.datetime_of_start
+        @reg.approved = "Yes"
+     else
+        @reg.approved = "No"
+     end
+
      if @reg.save
       #@game = @reg.game
       redirect_to reg_path(@reg)

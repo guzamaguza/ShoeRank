@@ -35195,3 +35195,96 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /usr/local/rvm/gems/ruby-2.6.1/gems/activesupport-5.2.4.4/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 98.35.122.28 at 2020-10-13 04:18:18 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#index as HTML
+  Rendering sessions/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/index.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 48ms (Views: 35.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/regs/new" for 98.35.122.28 at 2020-10-13 04:18:20 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/new.html.erb within layouts/application
+  Rendered layouts/_errors.html.erb (0.4ms)
+  [1m[36mContest Load (0.2ms)[0m  [1m[34mSELECT "contests".* FROM "contests"[0m
+  ↳ app/views/regs/new.html.erb:8
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/regs/new.html.erb:13
+  Rendered regs/new.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 57ms (Views: 17.6ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/regs" for 98.35.122.28 at 2020-10-13 04:18:22 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O637/0nITWMBB0JrM9QaotridTWcKv5qt6xsz7XuI8fwoZPGLpNSbrUnhzzhwz3GzuqdIBB/LCeewUSHznr21Q==", "reg"=>{"contest_id"=>"1", "game_id"=>"1", "datetime_registered"=>"2020-10-13 04:18:20 UTC"}, "commit"=>"Create Reg"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mReg Create (0.3ms)[0m  [1m[32mINSERT INTO "regs" ("datetime_registered", "approved", "user_id", "contest_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["datetime_registered", "2020-10-13 04:18:20 UTC"], ["approved", "Yes"], ["user_id", 1], ["contest_id", 1], ["game_id", 1], ["created_at", "2020-10-13 04:18:22.524741"], ["updated_at", "2020-10-13 04:18:22.524741"]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/regs_controller.rb:22
+Redirected to http://178.128.177.30:55211/regs/5
+Completed 302 Found in 26ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/regs/5" for 98.35.122.28 at 2020-10-13 04:18:22 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:31
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:2
+  Rendered regs/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/regs/5" for 98.35.122.28 at 2020-10-13 04:19:14 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:31
+  Rendering regs/show.html.erb within layouts/application
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/regs/show.html.erb:2
+  Rendered regs/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
