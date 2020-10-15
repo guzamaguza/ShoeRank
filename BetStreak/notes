@@ -1,8 +1,8 @@
 Things left to do:
--datetime registered
 -timer until game starts
 -stats
 -questions and answers, etc
+-uniqueness of entries by users
 
 Find Routes by...
 http://159.89.134.39:36581/rails/info/routes

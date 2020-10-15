@@ -1,7 +1,7 @@
 class RegsController < ApplicationController
 
   def index
-    @regs = current_user.regs
+    @regs = current_user.regs.uniq
   end
 
   def new
