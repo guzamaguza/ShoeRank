@@ -37,7 +37,7 @@
 
 
   <h1> The Game Will Appear Below When It Begins! </h1>
-    <h2> Number of People Registered: <%= @reg.users.count %> </h2>
+    <h2> Number of People Registered: <%= @contest.regs.count %> </h2>
     <h2> This game will start on: <%= @reg.game.datetime_of_start%> </h2>
 
 
@@ -45,15 +45,15 @@
     <h2 style="float: center; font-size:46px;"> &nbsp;&nbsp;&nbsp;Countdown: </h2>
     <p id="countdown"> </p>
 
-    <form method="post"; action="/questions">
-        <input id="hidden" type="hidden" name="reg_id" value="<%= @reg.id %>">
-        <input name="playbutton"; style="visibility: hidden"; type="submit" value="Play Now!">
-    </form>
+    <%= form_tag action='/question_start' do |f| %>
+        <%= hidden_field_tag :reg_id, @reg.id %>
+        <%= submit_tag "Play Now" %>
+    <% end %>
 
     <script>
-    // Set the date we're counting down to
+    // Set the date we're counting down to:
     var countDownDate = new Date("Aug 3, 2020 15:37:25").getTime();
-    //var countDownDate = new Date("Aug 30, 2020 15:37:25").getTime();
+    //var countDownDate = new Date('<%= @game.datetime_of_start %>').getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function() {

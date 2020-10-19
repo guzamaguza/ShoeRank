@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
+  post '/question_start', to: 'questions#show'
+
   resources :users
   resources :games
   resources :regs

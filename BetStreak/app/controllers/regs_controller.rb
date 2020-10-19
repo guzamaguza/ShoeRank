@@ -29,6 +29,8 @@ class RegsController < ApplicationController
 
   def show
     @reg = Reg.find_by(id: params[:id])
+    @contest = @reg.contest
+    @game = @reg.game
   end
 
   private
