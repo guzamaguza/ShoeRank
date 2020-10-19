@@ -1,1 +1,59 @@
 <h1> Question Page! </h1>
+
+<h1> Game: <%= @reg.game.title %> </h1>
+<h1> People Remaining: <%= @players_rem %> </h1>
+<h1> Questions Below: (You have two minutes to answer for this inning!)</h1>
+
+<div>Answer before time runs out: <span id="time">02:00</span>!</div>
+
+<div id="radios_and_submit">
+  <form id="first_q" method="post" action="/answers/1">
+    <h2 class="first_q">1) <%= @questions.find_by(:q_num => "1").content %> </h2>
+      <div>
+        <label style="font-size: 30px"; for="yes">Yes: </label>
+        <input type="radio" id="yes" name="response" value="Yes">
+      </div>
+      <div>
+        <label style="font-size: 30px"; for="no">No: </label>
+        <input type="radio" id="no" name="response" value="No">
+      </div>
+
+      <div>
+        <button style="color: #000000" id="submit" type="submit">Submit Answer! </button>
+      </div>
+  </form>
+</div>
+
+<div style="visibility:hidden" id="nav_to_lost">
+  <form action="/lost">
+    <input id="hidden" type="hidden" name="reg_id" value="<%= @questions.find_by(:q_num => "1").reg_id  %>">
+    <input style="color: #000000" type="submit" value="You Lost, Click Here" />
+  </form>
+</div>
+
+<script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            document.getElementById("time").innerHTML = "Time Ran Out! You lost!";
+            document.getElementById("radios_and_submit").style.visibility = "hidden";
+            document.getElementById("nav_to_lost").style.visibility = "visible";
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var twoMinutes = 60 * 2,
+        display = document.querySelector('#time');
+    startTimer(twoMinutes, display);
+};
+</script>
