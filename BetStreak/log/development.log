@@ -38526,3 +38526,1601 @@ ActionView::Template::Error (undefined method `reg_id' for #<Question:0x00007f38
     32: </div>
   
 app/views/questions/show.html.erb:29:in `_app_views_questions_show_html_erb__3662895033658209171_69940930575460'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "contests"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "contests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "stakes" varchar, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "games"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "datetime_of_start" varchar, "datetime_of_end" varchar, "location" varchar, "timezone" varchar, "match_status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions"[0m
+  ↳ db/schema.rb:33
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "q_num" varchar, "content" varchar, "answer" varchar, "datetime_required" datetime, "datetime_submitted" datetime, "accepted" varchar, "result" varchar, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_questions_on_game_id" ON "questions" ("game_id")[0m
+  ↳ db/schema.rb:33
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "regs"[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "regs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "datetime_registered" varchar, "approved" varchar, "w_or_l" varchar, "user_id" integer, "contest_id" integer, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_contest_id" ON "regs" ("contest_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_game_id" ON "regs" ("game_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_user_id" ON "regs" ("user_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:61
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "total_points" integer, "win_count" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:61
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201006044032)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200920062802),
+(20200920062637),
+(20200920062707),
+(20200920062740);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-20 01:02:44.151718"], ["updated_at", "2020-10-20 01:02:44.151718"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "contests"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "contests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "stakes" varchar, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "games"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "datetime_of_start" varchar, "datetime_of_end" varchar, "location" varchar, "timezone" varchar, "match_status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions"[0m
+  ↳ db/schema.rb:33
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "q_num" varchar, "content" varchar, "answer" varchar, "datetime_required" datetime, "datetime_submitted" datetime, "accepted" varchar, "result" varchar, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_questions_on_game_id" ON "questions" ("game_id")[0m
+  ↳ db/schema.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "regs"[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "regs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "datetime_registered" varchar, "approved" varchar, "w_or_l" varchar, "user_id" integer, "contest_id" integer, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_contest_id" ON "regs" ("contest_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_game_id" ON "regs" ("game_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_user_id" ON "regs" ("user_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:61
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "total_points" integer, "win_count" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:61
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201006044032)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200920062802),
+(20200920062637),
+(20200920062707),
+(20200920062740);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-20 01:02:44.204998"], ["updated_at", "2020-10-20 01:02:44.204998"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2020-10-20 01:02:44.210249"], ["key", "environment"]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mContest Destroy (2.3ms)[0m  [1m[31mDELETE FROM "contests"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGame Destroy (16.1ms)[0m  [1m[31mDELETE FROM "games"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mQuestion Destroy (1.8ms)[0m  [1m[31mDELETE FROM "questions"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mContest Create (0.3ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "high"], ["status", ""], ["created_at", "2020-10-20 01:02:44.274176"], ["updated_at", "2020-10-20 01:02:44.274176"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:17
+  [1m[36mContest Create (0.3ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "med"], ["status", ""], ["created_at", "2020-10-20 01:02:44.281387"], ["updated_at", "2020-10-20 01:02:44.281387"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mContest Create (0.2ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "low"], ["status", ""], ["created_at", "2020-10-20 01:02:44.285173"], ["updated_at", "2020-10-20 01:02:44.285173"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("title", "datetime_of_start", "datetime_of_end", "location", "timezone", "match_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["datetime_of_start", "2021-08-30 16:00:00 UTC"], ["datetime_of_end", ""], ["location", "Philadelphia, Pennsylvania"], ["timezone", "EST"], ["match_status", "Upcoming"], ["created_at", "2020-10-20 01:02:44.307067"], ["updated_at", "2020-10-20 01:02:44.307067"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:87
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:97
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:107
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "1"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.334969"], ["updated_at", "2020-10-20 01:02:44.334969"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "2"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.341519"], ["updated_at", "2020-10-20 01:02:44.341519"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "3"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.347325"], ["updated_at", "2020-10-20 01:02:44.347325"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "4"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.353364"], ["updated_at", "2020-10-20 01:02:44.353364"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "5"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.358872"], ["updated_at", "2020-10-20 01:02:44.358872"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "6"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.365063"], ["updated_at", "2020-10-20 01:02:44.365063"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "7"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.371387"], ["updated_at", "2020-10-20 01:02:44.371387"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "8"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.376294"], ["updated_at", "2020-10-20 01:02:44.376294"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (1.0ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "9"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-10-20 01:02:44.381451"], ["updated_at", "2020-10-20 01:02:44.381451"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mContest Destroy (3.5ms)[0m  [1m[31mDELETE FROM "contests"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGame Destroy (1.6ms)[0m  [1m[31mDELETE FROM "games"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mQuestion Destroy (1.6ms)[0m  [1m[31mDELETE FROM "questions"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mContest Create (0.3ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "high"], ["status", ""], ["created_at", "2020-10-20 01:02:48.748217"], ["updated_at", "2020-10-20 01:02:48.748217"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:17
+  [1m[36mContest Create (0.2ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "med"], ["status", ""], ["created_at", "2020-10-20 01:02:48.751851"], ["updated_at", "2020-10-20 01:02:48.751851"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (1.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mContest Create (0.3ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "low"], ["status", ""], ["created_at", "2020-10-20 01:02:48.778245"], ["updated_at", "2020-10-20 01:02:48.778245"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("title", "datetime_of_start", "datetime_of_end", "location", "timezone", "match_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["datetime_of_start", "2021-08-30 16:00:00 UTC"], ["datetime_of_end", ""], ["location", "Philadelphia, Pennsylvania"], ["timezone", "EST"], ["match_status", "Upcoming"], ["created_at", "2020-10-20 01:02:48.788967"], ["updated_at", "2020-10-20 01:02:48.788967"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:87
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:97
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:107
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "1"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.804461"], ["updated_at", "2020-10-20 01:02:48.804461"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "2"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.808433"], ["updated_at", "2020-10-20 01:02:48.808433"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "3"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.812097"], ["updated_at", "2020-10-20 01:02:48.812097"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "4"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.815898"], ["updated_at", "2020-10-20 01:02:48.815898"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "5"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.820082"], ["updated_at", "2020-10-20 01:02:48.820082"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "6"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.823575"], ["updated_at", "2020-10-20 01:02:48.823575"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "7"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.827285"], ["updated_at", "2020-10-20 01:02:48.827285"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "8"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.830637"], ["updated_at", "2020-10-20 01:02:48.830637"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:120
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "9"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-10-20 01:02:48.834477"], ["updated_at", "2020-10-20 01:02:48.834477"]]
+  ↳ db/seeds.rb:120
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:120
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /usr/local/rvm/gems/ruby-2.6.1/gems/activesupport-5.2.4.4/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 98.35.122.28 at 2020-10-20 01:03:02 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#index as HTML
+  Rendering sessions/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/index.html.erb within layouts/application (25.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 200 OK in 38ms (Views: 31.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/favicon.ico" for 98.35.122.28 at 2020-10-20 01:03:03 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/signup" for 98.35.122.28 at 2020-10-20 01:03:29 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (10.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 200 OK in 20ms (Views: 13.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 98.35.122.28 at 2020-10-20 01:03:39 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SinPfKlBCksXkASVl7+KvimuzrIga45Y7IAz5rY3frnbES7NpoDaemkuGsu/Gaxf+TiFKHyy5q5P5XFfEsizgA==", "user"=>{"username"=>"gh", "email"=>"gh@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "gh"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "gh"], ["email", "gh@gmail.com"], ["password_digest", "$2a$12$/hvUtosEp27vGiJyBebb2ewqIQCkoLvIjrWfxGAjav1woY4SrO6Dq"], ["created_at", "2020-10-20 01:03:39.980351"], ["updated_at", "2020-10-20 01:03:39.980351"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://165.227.31.208:54339/users/1
+Completed 302 Found in 258ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-10-20 01:03:40 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-20 01:03:44 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 29ms (Views: 23.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-20 01:03:45 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/regs_controller.rb:4
+  Rendering regs/index.html.erb within layouts/application
+  Rendered regs/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 4.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-10-20 01:03:46 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-10-20 01:03:47 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/regs_controller.rb:4
+  Rendering regs/index.html.erb within layouts/application
+  Rendered regs/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/regs/new" for 98.35.122.28 at 2020-10-20 01:05:11 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/new.html.erb within layouts/application
+  Rendered layouts/_errors.html.erb (0.4ms)
+  [1m[36mContest Load (0.2ms)[0m  [1m[34mSELECT "contests".* FROM "contests"[0m
+  ↳ app/views/regs/new.html.erb:8
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/regs/new.html.erb:13
+  Rendered regs/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 31ms (Views: 10.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/regs" for 98.35.122.28 at 2020-10-20 01:05:13 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CWEtOt/owNNZIx2gJL2GSXXzsZr2WvV8/gyD85JWSFvd2mjpunAc00vSYAmZU8vNHOECA85Lgaml2Vs8eS0HeQ==", "reg"=>{"contest_id"=>"4", "game_id"=>"2", "datetime_registered"=>"2020-10-20 01:05:11 UTC"}, "commit"=>"Create Reg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mReg Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "regs" WHERE "regs"."game_id" = ? AND "regs"."user_id" = ? LIMIT ?[0m  [["game_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mReg Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "regs" WHERE "regs"."contest_id" = ? AND "regs"."user_id" = ? LIMIT ?[0m  [["contest_id", 4], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mReg Create (0.4ms)[0m  [1m[32mINSERT INTO "regs" ("datetime_registered", "approved", "user_id", "contest_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["datetime_registered", "2020-10-20 01:05:11 UTC"], ["approved", "Yes"], ["user_id", 1], ["contest_id", 4], ["game_id", 2], ["created_at", "2020-10-20 01:05:13.171871"], ["updated_at", "2020-10-20 01:05:13.171871"]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/regs_controller.rb:22
+Redirected to http://165.227.31.208:54339/regs/1
+Completed 302 Found in 28ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/regs/1" for 98.35.122.28 at 2020-10-20 01:05:13 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:31
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:32
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:33
+  Rendering regs/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "regs" WHERE "regs"."contest_id" = ?[0m  [["contest_id", 4]]
+  ↳ app/views/regs/show.html.erb:40
+  Rendered regs/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 01:05:15 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:11
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:29
+  Rendered questions/show.html.erb within layouts/application (15.8ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `reg_id' for #<Question:0x0000000004bc2650>):
+    26: 
+    27: <div style="visibility:hidden" id="nav_to_lost">
+    28:   <form action="/lost">
+    29:     <input id="hidden" type="hidden" name="reg_id" value="<%= @questions.find_by(:q_num => "1").reg_id  %>">
+    30:     <input style="color: #000000" type="submit" value="You Lost, Click Here" />
+    31:   </form>
+    32: </div>
+  
+app/views/questions/show.html.erb:29:in `_app_views_questions_show_html_erb___2299412565217422485_33915440'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 01:20:46 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:11
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:29
+  Rendered questions/show.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `reg_id' for #<Question:0x00007ff434b01b68>):
+    26: 
+    27: <div style="visibility:hidden" id="nav_to_lost">
+    28:   <form action="/lost">
+    29:     <input id="hidden" type="hidden" name="reg_id" value="<%= @questions.find_by(:q_num => "1").reg_id  %>">
+    30:     <input style="color: #000000" type="submit" value="You Lost, Click Here" />
+    31:   </form>
+    32: </div>
+  
+app/views/questions/show.html.erb:29:in `_app_views_questions_show_html_erb___2299412565217422485_42533480'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 01:46:28 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:49
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:67
+  Rendered questions/show.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `reg_id' for #<Question:0x00007ff440032488>):
+    64: 
+    65: <div style="visibility:hidden" id="nav_to_lost">
+    66:   <form action="/lost">
+    67:     <input id="hidden" type="hidden" name="reg_id" value="<%= @questions.find_by(:q_num => "1").reg_id  %>">
+    68:     <input style="color: #000000" type="submit" value="You Lost, Click Here" />
+    69:   </form>
+    70: </div>
+  
+app/views/questions/show.html.erb:67:in `_app_views_questions_show_html_erb___2299412565217422485_40265260'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:04:03 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.3ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.2ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  Rendered questions/show.html.erb within layouts/application (290.1ms)
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00000000040eb790>:0x00000000049d9d20>):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= question_form_option(f) %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_38721620'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:04:20 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  Rendered questions/show.html.erb within layouts/application (291.4ms)
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `question_form' for #<#<Class:0x00000000040eb790>:0x0000000004b8fe30>
+Did you mean?  question_url
+               questions_url
+               question_path):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= question_form %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_39569100'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:04:50 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.6ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (Missing block):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= form_for @question %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_38253060'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:04:55 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (Missing block):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= form_for @question %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_24562260'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:07:48 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing block):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= form_for @question %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_39789760'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:17:44 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Post):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', post: Post.new %>
+    12: 
+    13: </div>
+    14: 
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343243713140'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:17:56 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform' %>
+    12: 
+    13: </div>
+    14: 
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_40226220'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:18:55 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `question' for #<Game:0x00007ff420529df8>
+Did you mean?  questions
+               questions=):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', question: @reg.game.question.all.index(1) %>
+    12: 
+    13: </div>
+    14: 
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343245544560'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:19:09 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/views/questions/show.html.erb:11
+  Rendered questions/show.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', question: @reg.game.questions.all.index(1) %>
+    12: 
+    13: </div>
+    14: 
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343249832400'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:19:58 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/views/questions/show.html.erb:11
+  Rendered questions/show.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', question: @reg.game.questions.all.index(1) %>
+    12: 
+    13: </div>
+    14: 
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_40352840'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:24:58 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:11
+  Rendered questions/show.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', question: @reg.game.questions.all.find_by(q_num: "1") %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343245690860'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:25:09 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:11
+  Rendered questions/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', question: @reg.game.questions.all.find_by(q_num: "1") %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343243275040'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 02:59:23 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:11
+  Rendered questions/show.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', question: @reg.game.questions.all.find_by(q_num: "1") %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343416523220'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:01:24 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:11
+  Rendered questions/show.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', question: @reg.game.questions.all.find_by(q_num: "1") %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_33717140'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:25:29 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:11
+  Rendered questions/show.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform', question: @reg.game.questions.all.find_by(q_num: "1") %>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343244937880'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:34:48 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__questionform, application/__questionform with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_questionform'%>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343379616480'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:37:15 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__form, application/__form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_form'%>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_40025380'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:38:28 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__form, application/__form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_form'%>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343245484820'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:38:38 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__form, application/__form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_form'%>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343243953580'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:38:48 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__form, application/__form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_form'%>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_42096680'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:39:20 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/__form, application/__form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/synchronous-integer-5752/temporary/BetStreak/BetStreak/app/views"
+):
+     8: 
+     9: 
+    10: <div id="1_q">
+    11:   <%= render '_form'%>
+    12: </div>
+    13: 
+    14: <div id="2_q">
+  
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_31696500'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:40:11 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/_form.html.erb (0.2ms)
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:49
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:67
+  Rendered questions/show.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `reg_id' for #<Question:0x00007ff421e20618>):
+    64: 
+    65: <div style="visibility:hidden" id="nav_to_lost">
+    66:   <form action="/lost">
+    67:     <input id="hidden" type="hidden" name="reg_id" value="<%= @questions.find_by(:q_num => "1").reg_id  %>">
+    68:     <input style="color: #000000" type="submit" value="You Lost, Click Here" />
+    69:   </form>
+    70: </div>
+  
+app/views/questions/show.html.erb:67:in `_app_views_questions_show_html_erb___2299412565217422485_70343258575220'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:40:33 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? LIMIT ?[0m  [["game_id", 2], ["LIMIT", 11]]
+  ↳ /usr/local/rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  Rendered questions/_form.html.erb (228.9ms)
+  Rendered questions/show.html.erb within layouts/application (230.0ms)
+Completed 500 Internal Server Error in 235ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00000000040eb790>:0x00007ff4303c9098>):
+    1: <%= f.label :q_num, "Answer the Question:" %>
+    2: 
+    3:   <%= f.fields_for :question do |w| %>
+    4: 
+  
+app/views/questions/_form.html.erb:1:in `_app_views_questions__form_html_erb__2010241489500516212_70343379045180'
+app/views/questions/show.html.erb:11:in `_app_views_questions_show_html_erb___2299412565217422485_70343379012840'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:41:04 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/_form.html.erb (11.7ms)
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:49
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:67
+  Rendered questions/show.html.erb within layouts/application (21.3ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `reg_id' for #<Question:0x00007ff42041c9d8>):
+    64: 
+    65: <div style="visibility:hidden" id="nav_to_lost">
+    66:   <form action="/lost">
+    67:     <input id="hidden" type="hidden" name="reg_id" value="<%= @questions.find_by(:q_num => "1").reg_id  %>">
+    68:     <input style="color: #000000" type="submit" value="You Lost, Click Here" />
+    69:   </form>
+    70: </div>
+  
+app/views/questions/show.html.erb:67:in `_app_views_questions_show_html_erb___2299412565217422485_70343258561980'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:41:28 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/_form.html.erb (0.9ms)
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:49
+  Rendered questions/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:49:45 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 3.1ms)
+
+
+  
+NoMethodError (undefined method `users' for #<Game:0x00000000040c9050>):
+  
+app/controllers/questions_controller.rb:8:in `show'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:50:21 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 3.8ms)
+
+
+  
+NoMethodError (undefined method `reg' for #<Game:0x00007ff420480988>
+Did you mean?  regs):
+  
+app/controllers/questions_controller.rb:8:in `show'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:50:34 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `users' for #<Game:0x00007ff420134748>):
+  
+app/controllers/questions_controller.rb:8:in `show'
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:50:48 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/questions_controller.rb:8
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/_form.html.erb (0.9ms)
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:49
+  Rendered questions/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 48ms (Views: 10.3ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:51:44 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/questions_controller.rb:8
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/_form.html.erb (0.9ms)
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:49
+  Rendered questions/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 49ms (Views: 10.9ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/question_start" for 98.35.122.28 at 2020-10-20 03:52:03 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#show as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vun8Du24MU9+eE7OBFPcrBppSXtP9xa3luRMacMnPE/N4Zu2J1KtCMKvNpJChoItamuqAytNgcFBk01UXmnhxA==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:4
+  [1m[36mContest Load (0.2ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:6
+  [1m[36mReg Load (0.2ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/questions_controller.rb:8
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/_form.html.erb (0.9ms)
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."game_id" = ? AND "questions"."q_num" = ? LIMIT ?[0m  [["game_id", 2], ["q_num", "1"], ["LIMIT", 1]]
+  ↳ app/views/questions/show.html.erb:49
+  Rendered questions/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 51ms (Views: 10.8ms | ActiveRecord: 3.7ms)
+
+

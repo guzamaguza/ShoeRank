@@ -1,0 +1,13 @@
+<%= label :q_num, "Answer the Question:" %>
+
+  <%= fields_for :question do |w| %>
+
+  <%= w.label :q_num %>
+  <%= w.label :content %>
+  <%= w.select :answer,options_for_select(["Yes", "No"]), include_blank: true  %>
+    <br></br>
+
+  <%= w.hidden_field :user_id, value: current_user.id %>
+    <br></br>
+
+  <% end %>
