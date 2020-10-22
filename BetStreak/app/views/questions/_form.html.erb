@@ -1,13 +1,8 @@
-<%= label :q_num, "Answer the Question:" %>
+<%= form_for :question do |f| %>
 
-  <%= fields_for :question do |w| %>
-
-  <%= w.label :q_num %>
-  <%= w.label :content %>
-  <%= w.select :answer,options_for_select(["Yes", "No"]), include_blank: true  %>
-    <br></br>
-
-  <%= w.hidden_field :user_id, value: current_user.id %>
-    <br></br>
-
-  <% end %>
+  <%= label_tag(:answer, "Yes") %>
+  <%= radio_button_tag(:answer, "Yes") %>
+  <%= label_tag(:answer, "No") %>
+  <%= radio_button_tag(:answer, "No") %>
+  <%= submit_tag("Submit Answer") %>
+<% end %>

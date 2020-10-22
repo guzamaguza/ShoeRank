@@ -6,61 +6,12 @@
 
 <div>Answer before time runs out: <span id="time">02:00</span>!</div>
 
+<% @questions.each do |q| %>
+  <h2> <%= q.q_num %>) <%= q.content %></h2></br>
+  <h2> Date and Time Required: <%= q.datetime_required %></h2></br>
+  <%= render 'form' %>
+<% end %>
 
-<div id="1_q">
-  <%= render 'form'%>
-</div>
-
-<div id="2_q">
-
-</div>
-
-<div id="3_q">
-
-</div>
-
-<div id="4_q">
-
-</div>
-
-<div id="5_q">
-
-</div>
-
-<div id="6_q">
-
-</div>
-
-<div id="7_q">
-
-</div>
-
-<div id="8_q">
-
-</div>
-
-<div id="9_q">
-
-</div>
-
-
-<div id="first_q">
-  <form id="first_q" method="post" action="/answers/1">
-    <h2 class="first_q">1) <%= @questions.find_by(:q_num => "1").content %> </h2>
-      <div>
-        <label style="font-size: 30px"; for="yes">Yes: </label>
-        <input type="radio" id="yes" name="response" value="Yes">
-      </div>
-      <div>
-        <label style="font-size: 30px"; for="no">No: </label>
-        <input type="radio" id="no" name="response" value="No">
-      </div>
-
-      <div>
-        <button style="color: #000000" id="submit" type="submit">Submit Answer! </button>
-      </div>
-  </form>
-</div>
 
 <script>
 function startTimer(duration, display) {
