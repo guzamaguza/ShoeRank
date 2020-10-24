@@ -4,11 +4,32 @@
 <h1> People Remaining: <%= @players_rem %> </h1>
 <h1> Questions Below: (You have two minutes to answer for this inning!)</h1>
 
-<div>Answer before time runs out: <span id="time">02:00</span>!</div>
+<h1 style="color:blue;"> Current Time: <div id="clockbox"></div> </h1>
+      <script type="text/javascript">
+      var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+      function GetClock(){
+      var d=new Date();
+      var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+      var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
+      if(nmin<=9) nmin="0"+nmin;
+      if(nsec<=9) nsec="0"+nsec;
+
+      var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+"";
+      document.getElementById('clockbox').innerHTML=clocktext;
+      }
+
+      GetClock();
+      setInterval(GetClock,1000);
+      </script>
+
+<h1 style="color:red;">Answer before time runs out: <span id="time">02:00</span>!</h1>
 
 <% @questions.each do |q| %>
-  <h2> <%= q.q_num %>) <%= q.content %></h2></br>
-  <h2> Date and Time Required: <%= q.datetime_required %></h2></br>
+  <h2> <%= q.q_num %>) <%= q.content %></h2>
+  <h3> Question Starts at: <%= q.datetime_qstart %></h3>
+  <h3> Submit Answer by: <%= q.datetime_required %></h3>
   <%= render 'form' %>
 <% end %>
 

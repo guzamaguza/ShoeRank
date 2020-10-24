@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_044032) do
     t.string "q_num"
     t.string "content"
     t.string "answer"
+    t.datetime "datetime_qstart"
     t.datetime "datetime_required"
     t.datetime "datetime_submitted"
     t.string "accepted"

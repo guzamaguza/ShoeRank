@@ -19,7 +19,7 @@
   @contest_data_3 = [stakes: 'low',  status: '' ]
   @contest_3 = Contest.create!(@contest_data_3)
 
-  @game_data_1 = [ title: 'MLB: Atlanta Braves V. Philadelphia Phillies', datetime_of_start: '2021-08-30 16:00:00 UTC',  datetime_of_end: '' ,  location: 'Philadelphia, Pennsylvania' ,  timezone: 'EST' , match_status: 'Upcoming' ]
+  @game_data_1 = [ title: 'MLB: Atlanta Braves V. Philadelphia Phillies', datetime_of_start: '2021-05-01 16:00:00 UTC',  datetime_of_end: '' ,  location: 'Philadelphia, Pennsylvania' ,  timezone: 'EST' , match_status: 'Upcoming' ]
   @game_1 = Game.create!(@game_data_1)
 
   @questions_data_1 = [
@@ -28,7 +28,8 @@
       q_num: '1',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 16:00:00 UTC',
+      datetime_required: '2021-05-01 16:02:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
@@ -38,7 +39,8 @@
       q_num: '2',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 16:20:00 UTC',
+      datetime_required: '2021-05-01 16:22:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
@@ -48,7 +50,8 @@
       q_num: '3',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 16:40:00 UTC',
+      datetime_required: '2021-05-01 16:42:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
@@ -58,7 +61,8 @@
       q_num: '4',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 17:00:00 UTC',
+      datetime_required: '2021-05-01 17:02:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
@@ -68,7 +72,8 @@
       q_num: '5',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 17:20:00 UTC',
+      datetime_required: '2021-05-01 17:22:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
@@ -78,7 +83,8 @@
       q_num: '6',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 17:40:00 UTC',
+      datetime_required: '2021-05-01 17:42:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
@@ -88,7 +94,8 @@
       q_num: '7',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 18:00:00 UTC',
+      datetime_required: '2021-05-01 18:02:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
@@ -98,7 +105,8 @@
       q_num: '8',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 18:20:00 UTC',
+      datetime_required: '2021-05-01 18:22:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
@@ -108,7 +116,8 @@
       q_num: '9',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
-      datetime_required: '',
+      datetime_qstart: '2021-05-01 18:40:00 UTC',
+      datetime_required: '2021-05-01 18:42:00 UTC',
       datetime_submitted: '',
       accepted: '',
       result: ''
