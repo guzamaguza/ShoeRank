@@ -16,4 +16,19 @@ class QuestionsController < ApplicationController
     @players_rem = @game.regs.all.collect{|u| u.w_or_l != "L"}.count  #check this later
   end
 
+  def update
+    #@race = Race.find_by(id: params[:id])
+    @reg = Reg.find_by(id: params[:reg_id])
+    if @reg.game.question.update(question_params)
+
+      if @reg.game.question.answer ==
+
+      redirect_to question_path(@race)
+
+    else
+      render :show
+    end
+  end
+
+
 end

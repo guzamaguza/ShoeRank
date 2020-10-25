@@ -4,5 +4,5 @@
   <%= radio_button_tag(:answer, "Yes") %>
   <%= label_tag(:answer, "No") %>
   <%= radio_button_tag(:answer, "No") %>
-  <%= submit_tag("Submit Answer") %>
+  <%= submit_tag("Submit Answer", :method=>"UPDATE") %>
 <% end %>
