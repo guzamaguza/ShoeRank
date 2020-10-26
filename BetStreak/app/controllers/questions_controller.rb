@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
         render :show
       end
     else
-      @question.result == "l"
+      @question.result = "l"
       @question.game.reg.w_or_l = "l"
       render "lostpage"
     end
