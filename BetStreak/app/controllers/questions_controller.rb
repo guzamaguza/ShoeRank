@@ -2,7 +2,6 @@ class QuestionsController < ApplicationController
 
   def show
     @reg = Reg.find_by(id: params[:reg_id])
-    @contest = @reg.contest
     @game = @reg.game
     @questions = @reg.game.questions.all
     @players_rem = @game.regs.all.collect{|u| u.w_or_l != "L"}.count  #check this later
@@ -10,7 +9,6 @@ class QuestionsController < ApplicationController
 
   def index
     @reg = Reg.find_by(id: params[:reg_id])
-    @contest = @reg.contest
     @game = @reg.game
     @questions = @reg.game.questions.all
     @players_rem = @game.regs.all.collect{|u| u.w_or_l != "L"}.count  #check this later
@@ -27,8 +25,8 @@ class QuestionsController < ApplicationController
       end
     else
       @question.result == "l"
-      @reg.w_or_l = "l"
-      redirect_to "/lostpage"
+      @question.game.reg.w_or_l = "l"
+      render "lostpage"
     end
   end
 
