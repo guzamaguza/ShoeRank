@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.string :q_num
       t.string :content
       t.string :answer
+      t.string :correct_answer
       t.datetime :datetime_qstart
       t.datetime :datetime_required
       t.datetime :datetime_submitted

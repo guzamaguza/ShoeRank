@@ -17,16 +17,18 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    #@race = Race.find_by(id: params[:id])
-    @reg = Reg.find_by(id: params[:reg_id])
-    if @reg.game.question.update(question_params)
-
-      if @reg.game.question.answer == @@Phillies_Braves[:q1_ans]
-
-      redirect_to question_path(@race)
-
+    @question = Question.find_by(id: params[:id])
+    #if submitted on time then update the database, if not then redirect to lost page
+    if @question.datetime_submitted < @question.datetime_required
+      if @question.update(question_params)
+        redirect_to question_path
+      else
+        render :show
+      end
     else
-      render :show
+      @question.result == "l"
+      @reg.w_or_l = "l"
+      redirect_to "/lostpage"
     end
   end
 

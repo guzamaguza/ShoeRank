@@ -10,6 +10,7 @@
   Game.delete_all
   Question.delete_all
 
+
   @contest_data_1 = [stakes: 'high',  status: '' ]
   @contest_1 = Contest.create!(@contest_data_1)
 
@@ -28,6 +29,7 @@
       q_num: '1',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 16:00:00 UTC',
       datetime_required: '2021-05-01 16:02:00 UTC',
       datetime_submitted: '',
@@ -39,6 +41,7 @@
       q_num: '2',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 16:20:00 UTC',
       datetime_required: '2021-05-01 16:22:00 UTC',
       datetime_submitted: '',
@@ -50,6 +53,7 @@
       q_num: '3',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 16:40:00 UTC',
       datetime_required: '2021-05-01 16:42:00 UTC',
       datetime_submitted: '',
@@ -61,6 +65,7 @@
       q_num: '4',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 17:00:00 UTC',
       datetime_required: '2021-05-01 17:02:00 UTC',
       datetime_submitted: '',
@@ -72,6 +77,7 @@
       q_num: '5',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 17:20:00 UTC',
       datetime_required: '2021-05-01 17:22:00 UTC',
       datetime_submitted: '',
@@ -83,6 +89,7 @@
       q_num: '6',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 17:40:00 UTC',
       datetime_required: '2021-05-01 17:42:00 UTC',
       datetime_submitted: '',
@@ -94,6 +101,7 @@
       q_num: '7',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 18:00:00 UTC',
       datetime_required: '2021-05-01 18:02:00 UTC',
       datetime_submitted: '',
@@ -105,6 +113,7 @@
       q_num: '8',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 18:20:00 UTC',
       datetime_required: '2021-05-01 18:22:00 UTC',
       datetime_submitted: '',
@@ -116,6 +125,7 @@
       q_num: '9',
       content: 'Will either team score this inning? Yes/No',
       answer: '',
+      correct_answer: '',
       datetime_qstart: '2021-05-01 18:40:00 UTC',
       datetime_required: '2021-05-01 18:42:00 UTC',
       datetime_submitted: '',
@@ -128,25 +138,3 @@
   @questions_data_1.each do |ques|
     Question.create!(ques)
   end
-
-=begin
-def main
-  #make_games
-  make_questions
-  #make_admin
-  #make_attractions_and_rides
-end
-
-
-def make_games
-  Game.create!(@games_data_1)
-end
-
-def make_questions
-  @questions_data_1.each do |ques|
-    Question.create!(ques)
-  end
-end
-
-main
-=end
