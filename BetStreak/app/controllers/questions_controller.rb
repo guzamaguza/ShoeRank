@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
     @reg = Reg.find_by(id: params[:reg_id])
     if @reg.game.question.update(question_params)
 
-      if @reg.game.question.answer ==
+      if @reg.game.question.answer == @@Phillies_Braves[:q1_ans]
 
       redirect_to question_path(@race)
 
