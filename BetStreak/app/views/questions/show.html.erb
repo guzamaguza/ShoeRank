@@ -27,6 +27,7 @@
 <h1 style="color:red;">Answer before time runs out: <span id="time">02:00</span>!</h1>
 
 <% @questions.each do |q| %>
+  <% @quest = q %>
   <% if q.datetime_qstart > Time.now.utc%>
     <h2> <%= q.q_num %>) <%= q.content %></h2>
     <h3> Question Starts at: <%= q.datetime_qstart %></h3>

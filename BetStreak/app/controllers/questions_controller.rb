@@ -1,7 +1,13 @@
 class QuestionsController < ApplicationController
 
+  def start_page
+
+  end
+
   def show
     @reg = Reg.find_by(id: params[:reg_id])
+    @question = Question.find_by(id: params[:question])
+
     @game = @reg.game
     @questions = @reg.game.questions.all
     @players_rem = @game.regs.all.collect{|u| u.w_or_l != "L"}.count  #check this later
