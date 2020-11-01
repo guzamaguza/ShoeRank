@@ -50874,3 +50874,634 @@ Completed 500 Internal Server Error in 19431ms (ActiveRecord: 2.2ms)
 NoMethodError (undefined method `game' for nil:NilClass):
   
 app/controllers/questions_controller.rb:7:in `show'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "contests"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "contests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "stakes" varchar, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "games"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "datetime_of_start" varchar, "datetime_of_end" varchar, "location" varchar, "timezone" varchar, "match_status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions"[0m
+  ↳ db/schema.rb:33
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "q_num" varchar, "content" varchar, "answer" varchar, "correct_answer" varchar, "datetime_qstart" datetime, "datetime_required" datetime, "datetime_submitted" datetime, "accepted" varchar, "result" varchar, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX "index_questions_on_game_id" ON "questions" ("game_id")[0m
+  ↳ db/schema.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "regs"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "regs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "datetime_registered" varchar, "approved" varchar, "w_or_l" varchar, "user_id" integer, "contest_id" integer, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_contest_id" ON "regs" ("contest_id")[0m
+  ↳ db/schema.rb:49
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_game_id" ON "regs" ("game_id")[0m
+  ↳ db/schema.rb:49
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_user_id" ON "regs" ("user_id")[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:63
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "total_points" integer, "win_count" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:63
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201006044032)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200920062802),
+(20200920062637),
+(20200920062740),
+(20200920062707);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-01 21:07:10.637780"], ["updated_at", "2020-11-01 21:07:10.637780"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "contests"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "contests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "stakes" varchar, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "games"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "datetime_of_start" varchar, "datetime_of_end" varchar, "location" varchar, "timezone" varchar, "match_status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions"[0m
+  ↳ db/schema.rb:33
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "q_num" varchar, "content" varchar, "answer" varchar, "correct_answer" varchar, "datetime_qstart" datetime, "datetime_required" datetime, "datetime_submitted" datetime, "accepted" varchar, "result" varchar, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX "index_questions_on_game_id" ON "questions" ("game_id")[0m
+  ↳ db/schema.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "regs"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "regs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "datetime_registered" varchar, "approved" varchar, "w_or_l" varchar, "user_id" integer, "contest_id" integer, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_contest_id" ON "regs" ("contest_id")[0m
+  ↳ db/schema.rb:49
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_game_id" ON "regs" ("game_id")[0m
+  ↳ db/schema.rb:49
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX "index_regs_on_user_id" ON "regs" ("user_id")[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:63
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "total_points" integer, "win_count" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:63
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201006044032)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200920062802),
+(20200920062637),
+(20200920062740),
+(20200920062707);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-01 21:07:10.738535"], ["updated_at", "2020-11-01 21:07:10.738535"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2020-11-01 21:07:10.749637"], ["key", "environment"]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mContest Destroy (2.6ms)[0m  [1m[31mDELETE FROM "contests"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGame Destroy (2.6ms)[0m  [1m[31mDELETE FROM "games"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mQuestion Destroy (2.8ms)[0m  [1m[31mDELETE FROM "questions"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mContest Create (0.3ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "high"], ["status", ""], ["created_at", "2020-11-01 21:07:10.847259"], ["updated_at", "2020-11-01 21:07:10.847259"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContest Create (0.3ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "med"], ["status", ""], ["created_at", "2020-11-01 21:07:10.856106"], ["updated_at", "2020-11-01 21:07:10.856106"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (1.9ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mContest Create (0.3ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "low"], ["status", ""], ["created_at", "2020-11-01 21:07:10.881323"], ["updated_at", "2020-11-01 21:07:10.881323"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("title", "datetime_of_start", "datetime_of_end", "location", "timezone", "match_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["datetime_of_start", "2021-05-01 16:00:00 UTC"], ["datetime_of_end", ""], ["location", "Philadelphia, Pennsylvania"], ["timezone", "EST"], ["match_status", "Upcoming"], ["created_at", "2020-11-01 21:07:10.897919"], ["updated_at", "2020-11-01 21:07:10.897919"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:64
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:76
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:100
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:112
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:124
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "1"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 16:00:00"], ["datetime_required", "2021-05-01 16:02:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.921346"], ["updated_at", "2020-11-01 21:07:10.921346"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "2"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 16:20:00"], ["datetime_required", "2021-05-01 16:22:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.927228"], ["updated_at", "2020-11-01 21:07:10.927228"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "3"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 16:40:00"], ["datetime_required", "2021-05-01 16:42:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.932727"], ["updated_at", "2020-11-01 21:07:10.932727"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "4"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 17:00:00"], ["datetime_required", "2021-05-01 17:02:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.937956"], ["updated_at", "2020-11-01 21:07:10.937956"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "5"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 17:20:00"], ["datetime_required", "2021-05-01 17:22:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.943067"], ["updated_at", "2020-11-01 21:07:10.943067"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "6"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 17:40:00"], ["datetime_required", "2021-05-01 17:42:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.947876"], ["updated_at", "2020-11-01 21:07:10.947876"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "7"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 18:00:00"], ["datetime_required", "2021-05-01 18:02:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.952149"], ["updated_at", "2020-11-01 21:07:10.952149"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "8"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 18:20:00"], ["datetime_required", "2021-05-01 18:22:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.957882"], ["updated_at", "2020-11-01 21:07:10.957882"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "9"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 18:40:00"], ["datetime_required", "2021-05-01 18:42:00"], ["accepted", ""], ["result", ""], ["game_id", 1], ["created_at", "2020-11-01 21:07:10.962878"], ["updated_at", "2020-11-01 21:07:10.962878"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mContest Destroy (3.4ms)[0m  [1m[31mDELETE FROM "contests"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGame Destroy (2.3ms)[0m  [1m[31mDELETE FROM "games"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mQuestion Destroy (2.2ms)[0m  [1m[31mDELETE FROM "questions"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mContest Create (0.3ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "high"], ["status", ""], ["created_at", "2020-11-01 21:07:31.182715"], ["updated_at", "2020-11-01 21:07:31.182715"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mContest Create (0.2ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "med"], ["status", ""], ["created_at", "2020-11-01 21:07:31.186941"], ["updated_at", "2020-11-01 21:07:31.186941"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mContest Create (0.2ms)[0m  [1m[32mINSERT INTO "contests" ("stakes", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stakes", "low"], ["status", ""], ["created_at", "2020-11-01 21:07:31.190438"], ["updated_at", "2020-11-01 21:07:31.190438"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("title", "datetime_of_start", "datetime_of_end", "location", "timezone", "match_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["datetime_of_start", "2021-05-01 16:00:00 UTC"], ["datetime_of_end", ""], ["location", "Philadelphia, Pennsylvania"], ["timezone", "EST"], ["match_status", "Upcoming"], ["created_at", "2020-11-01 21:07:31.219239"], ["updated_at", "2020-11-01 21:07:31.219239"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:64
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:76
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:100
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:112
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."title" = ? LIMIT ?[0m  [["title", "MLB: Atlanta Braves V. Philadelphia Phillies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:124
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "1"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 16:00:00"], ["datetime_required", "2021-05-01 16:02:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.243901"], ["updated_at", "2020-11-01 21:07:31.243901"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "2"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 16:20:00"], ["datetime_required", "2021-05-01 16:22:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.248251"], ["updated_at", "2020-11-01 21:07:31.248251"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "3"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 16:40:00"], ["datetime_required", "2021-05-01 16:42:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.251840"], ["updated_at", "2020-11-01 21:07:31.251840"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "4"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 17:00:00"], ["datetime_required", "2021-05-01 17:02:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.255355"], ["updated_at", "2020-11-01 21:07:31.255355"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "5"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 17:20:00"], ["datetime_required", "2021-05-01 17:22:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.259248"], ["updated_at", "2020-11-01 21:07:31.259248"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "6"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 17:40:00"], ["datetime_required", "2021-05-01 17:42:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.262999"], ["updated_at", "2020-11-01 21:07:31.262999"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "7"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 18:00:00"], ["datetime_required", "2021-05-01 18:02:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.266968"], ["updated_at", "2020-11-01 21:07:31.266968"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "8"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 18:20:00"], ["datetime_required", "2021-05-01 18:22:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.270892"], ["updated_at", "2020-11-01 21:07:31.270892"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:139
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("q_num", "content", "answer", "correct_answer", "datetime_qstart", "datetime_required", "accepted", "result", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["q_num", "9"], ["content", "Will either team score this inning? Yes/No"], ["answer", ""], ["correct_answer", ""], ["datetime_qstart", "2021-05-01 18:40:00"], ["datetime_required", "2021-05-01 18:42:00"], ["accepted", ""], ["result", ""], ["game_id", 2], ["created_at", "2020-11-01 21:07:31.275851"], ["updated_at", "2020-11-01 21:07:31.275851"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:139
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /usr/local/rvm/gems/ruby-2.6.1/gems/activesupport-5.2.4.4/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 98.35.122.28 at 2020-11-01 21:07:50 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#index as HTML
+  Rendering sessions/index.html.erb within layouts/application
+  Rendered sessions/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 15ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 98.35.122.28 at 2020-11-01 21:07:50 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/signup" for 98.35.122.28 at 2020-11-01 21:07:54 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 31ms (Views: 16.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 98.35.122.28 at 2020-11-01 21:08:03 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bTGST8TUwLW1Zw9ZqRkbcnbiay0/+DHRw/5+MweqiWYGQ1pK4BIPGMnbDRaKcetMNA17Xuy3gBqAz25Gcc/RNw==", "user"=>{"username"=>"ff", "email"=>"ff@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ff"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "ff"], ["email", "ff@gmail.com"], ["password_digest", "$2a$12$vPJsZf6MzPukBreem9yTPepqPh1OqzK/t5DeZjZKOc4YZTF1SVNmW"], ["created_at", "2020-11-01 21:08:03.748585"], ["updated_at", "2020-11-01 21:08:03.748585"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://165.227.60.187:52085/users/1
+Completed 302 Found in 313ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/users/1" for 98.35.122.28 at 2020-11-01 21:08:03 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games" for 98.35.122.28 at 2020-11-01 21:08:26 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "games" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:12
+  Rendered games/index.html.erb within layouts/application (80.8ms)
+Completed 200 OK in 90ms (Views: 82.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/regs/new" for 98.35.122.28 at 2020-11-01 21:08:39 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/new.html.erb within layouts/application
+  Rendered layouts/_errors.html.erb (0.4ms)
+  [1m[36mContest Load (0.2ms)[0m  [1m[34mSELECT "contests".* FROM "contests"[0m
+  ↳ app/views/regs/new.html.erb:8
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/regs/new.html.erb:13
+  Rendered regs/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 31ms (Views: 13.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-11-01 21:08:40 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.4ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/regs_controller.rb:4
+  Rendering regs/index.html.erb within layouts/application
+  Rendered regs/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 23ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/regs" for 98.35.122.28 at 2020-11-01 21:08:42 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.1ms)[0m  [1m[34mSELECT "regs".* FROM "regs" WHERE "regs"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/regs_controller.rb:4
+  Rendering regs/index.html.erb within layouts/application
+  Rendered regs/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/regs/new" for 98.35.122.28 at 2020-11-01 21:08:43 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering regs/new.html.erb within layouts/application
+  Rendered layouts/_errors.html.erb (0.4ms)
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT "contests".* FROM "contests"[0m
+  ↳ app/views/regs/new.html.erb:8
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/regs/new.html.erb:13
+  Rendered regs/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/regs" for 98.35.122.28 at 2020-11-01 21:08:44 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X5yiyjGq8VfEz6pYr6iSB58aGuRkxRxDixYWPu71f0wn3AUYhDM0Q3/IgAYTj+LQgSLS5sQb7Jp2mlavxe78Gg==", "reg"=>{"contest_id"=>"4", "game_id"=>"2", "datetime_registered"=>"2020-11-01 21:08:43 UTC"}, "commit"=>"Create Reg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mContest Load (0.2ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mReg Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "regs" WHERE "regs"."game_id" = ? AND "regs"."user_id" = ? LIMIT ?[0m  [["game_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mReg Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "regs" WHERE "regs"."contest_id" = ? AND "regs"."user_id" = ? LIMIT ?[0m  [["contest_id", 4], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[36mReg Create (0.3ms)[0m  [1m[32mINSERT INTO "regs" ("datetime_registered", "approved", "user_id", "contest_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["datetime_registered", "2020-11-01 21:08:43 UTC"], ["approved", "Yes"], ["user_id", 1], ["contest_id", 4], ["game_id", 2], ["created_at", "2020-11-01 21:08:44.883927"], ["updated_at", "2020-11-01 21:08:44.883927"]]
+  ↳ app/controllers/regs_controller.rb:22
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/regs_controller.rb:22
+Redirected to http://165.227.60.187:52085/regs/1
+Completed 302 Found in 26ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/regs/1" for 98.35.122.28 at 2020-11-01 21:08:44 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mReg Load (0.3ms)[0m  [1m[34mSELECT  "regs".* FROM "regs" WHERE "regs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:31
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:32
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/regs_controller.rb:33
+  Rendering regs/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "regs" WHERE "regs"."contest_id" = ?[0m  [["contest_id", 4]]
+  ↳ app/views/regs/show.html.erb:40
+  Rendered regs/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 14ms (Views: 7.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/question_start" for 98.35.122.28 at 2020-11-01 21:08:47 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#start_page as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8KJ5Aj1UMd2RajnUSP7d3RklwJtmxZkqUwQ454OBnmxDMkqb0YusvbFKwAe02hqCeViYSPvSZLY6jNQWpEPc5g==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+No template found for QuestionsController#start_page, rendering head :no_content
+Completed 204 No Content in 37ms (ActiveRecord: 0.2ms)
+
+
+Started POST "/question_start" for 98.35.122.28 at 2020-11-01 21:09:14 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#start_page as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8KJ5Aj1UMd2RajnUSP7d3RklwJtmxZkqUwQ454OBnmxDMkqb0YusvbFKwAe02hqCeViYSPvSZLY6jNQWpEPc5g==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+No template found for QuestionsController#start_page, rendering head :no_content
+Completed 204 No Content in 19ms (ActiveRecord: 0.2ms)
+
+
+Started POST "/question_start" for 98.35.122.28 at 2020-11-01 21:09:18 +0000
+Cannot render console from 98.35.122.28! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by QuestionsController#start_page as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8KJ5Aj1UMd2RajnUSP7d3RklwJtmxZkqUwQ454OBnmxDMkqb0YusvbFKwAe02hqCeViYSPvSZLY6jNQWpEPc5g==", "reg_id"=>"1", "commit"=>"Play Now"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+No template found for QuestionsController#start_page, rendering head :no_content
+Completed 204 No Content in 20ms (ActiveRecord: 0.2ms)
+
+
