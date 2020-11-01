@@ -1,12 +1,14 @@
 class QuestionsController < ApplicationController
 
   def start_page
-
+    @reg = Reg.find_by(id: params[:reg_id])
+    render :start_page
   end
 
   def show
+    @question = Question.find_by(id: params[:id])
     @reg = Reg.find_by(id: params[:reg_id])
-    @question = Question.find_by(id: params[:question])
+    #@question = Question.find_by(id: params[:question])
 
     @game = @reg.game
     @questions = @reg.game.questions.all
@@ -14,9 +16,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @reg = Reg.find_by(id: params[:reg_id])
-    @game = @reg.game
-    @questions = @reg.game.questions.all
+    @game = Game.find_by(id: params[:game_id])
+    #@reg = @game.reg
+    @questions = @game.questions.all
     @players_rem = @game.regs.all.collect{|u| u.w_or_l != "L"}.count  #check this later
   end
 
