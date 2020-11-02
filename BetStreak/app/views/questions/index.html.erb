@@ -2,7 +2,7 @@
 
 <% @questions.each do |q| %>
   <% @quest = q %>
-  <% if q.datetime_qstart > Time.now.utc%>
+  <% if q.datetime_qstart < Time.now.utc%>
     <h2> <%= q.q_num %>) <%= q.content %></h2>
     <h3> Question Starts at: <%= q.datetime_qstart %></h3>
     <h3> Submit Answer by: <%= q.datetime_required %></h3>
