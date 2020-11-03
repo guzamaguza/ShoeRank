@@ -1,8 +1,8 @@
-<%= form_tag :question, :action => "update", do |f| %>
-  <%= hidden_field :id, value: f.id %>
+<%= form_for @question, :method => 'update' do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= label_tag(:answer, "Yes") %>
   <%= radio_button_tag(:answer, "Yes") %>
   <%= label_tag(:answer, "No") %>
   <%= radio_button_tag(:answer, "No") %>
-  <%= submit_tag("Submit", method: :update) %>
+  <%= f.submit %>
 <% end %>

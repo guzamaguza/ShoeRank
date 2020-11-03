@@ -39,18 +39,7 @@ class QuestionsController < ApplicationController
   end
 
 
-  def create
-    #binding.pry
-    if params[:answer] && @question = Question.find_by_id(params[:id])
-     @question = @question.update(params)
-    end
 
-    if @question.save
-     redirect_to question_path(@question)
-    else
-     render :new
-    end
-  end
 
 
 end
