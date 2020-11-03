@@ -38,6 +38,14 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def create
+    @question = @reg.game.question.build(question_params)
+     if @question.save
+       redirect_to question_path(@question)
+     else
+       render :new
+     end
+  end
 
 
 
