@@ -39,15 +39,20 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @reg.game.question.build(question_params)
-     if @question.save
-       redirect_to question_path(@question)
+    @question = Question.find_by(:id => params[:question][:id])
+    #@question = @reg.game.question.build(question_params)
+     if @question.present?
+       #@question.update
+       redirect_to patch_question_path
      else
-       render :new
+       render :index
      end
   end
 
+  private
 
-
+  def question_params
+    params.require(:question).permit(:answer, :game_id)
+  end
 
 end

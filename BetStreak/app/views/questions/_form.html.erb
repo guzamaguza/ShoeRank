@@ -1,5 +1,5 @@
 <%= form_for :question do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :id, value: @question.id %>
   <%= label_tag(:answer, "Yes") %>
   <%= radio_button_tag(:answer, "Yes") %>
   <%= label_tag(:answer, "No") %>
