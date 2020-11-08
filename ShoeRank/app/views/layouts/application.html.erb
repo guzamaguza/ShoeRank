@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>  </title>
+    <title>ShoeRank</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+   <div><%= render_nav_bar %></div>
+
   <body>
-
-    <% if logged_in? %>
-      <nav class='navbar'>
-        <%= link_to 'Homepage', root_path, class:'button'%>
-        <%= link_to 'Available Games', games_path, class:'button'%>
-        <%= link_to 'Register Now', new_reg_path, class:'button'%>
-        <%= link_to 'Your Registrations', regs_path, class:'button'%>
-        <%= link_to 'Your Stats', user_path(current_user.id), class:'button'%>
-        <%= link_to 'Logout', '/logout', method: :delete, class:'button'%>
-      </nav>
-    <% else %>
-      <!-- <%= link_to sessions_path %> -->
-    <% end %>
-
-    <div class='container'>
-
     <%= yield %>
-
-    </div>
   </body>
 </html>

@@ -1,7 +1,8 @@
-<h1>Welcome <%=@user.username%>!!!</h1>
+<h1>Welcome to <%= @user.username%>'s homepage! </h1>
 
-<h1> Your Stats:<h1>
-  <ul>
-    <li> Total Wins: <%= current_user.win_count%></li>
-    <li> Total Points: <%= current_user.total_points%></li>
-  </ul>
+<h3>Here are the shoes reviewed by <%=@user.username%>:</h3>
+<ul>
+  <% @user.reviewed_shoes.each do |shoe|%>
+  <li> <%= link_to shoe.model_and_brand, shoe_path(shoe)%> </li>
+  <% end %>
+</ul>
