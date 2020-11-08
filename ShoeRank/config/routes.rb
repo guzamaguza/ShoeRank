@@ -1,24 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "sessions#index"
 
+  get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  #delete '/logout' => 'sessions#destroy'
-  get 'logout' => 'sessions#destroy'
-
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+  delete '/logout' => 'sessions#destroy'
 
-  get '/auth/:provider/callback' => 'sessions#oauth_login'
+  get '/auth/:provider/callback' => 'sessions#create'
 
-  post '/question_start', to: 'questions#start_page'
 
-  resources :users
-  resources :games
-  resources :regs
-  resources :questions
-  resources :sessions
-  resources :contests
+  resources :reviews
+
+  resources :shoes do
+    resources :reviews, only: [:new, :index]
+  end
+
+  resources :users, only: [:show]
 
 end
