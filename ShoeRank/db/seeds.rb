@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+=begin
   Contest.delete_all
   Game.delete_all
   Question.delete_all
@@ -138,3 +139,4 @@
   @questions_data_1.each do |ques|
     Question.create!(ques)
   end
+=end 
