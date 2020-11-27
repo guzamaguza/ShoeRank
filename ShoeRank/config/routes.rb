@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
 
+  #get 'user_path' = 'users#show'
+
   get '/auth/:provider/callback' => 'sessions#create'
 
 

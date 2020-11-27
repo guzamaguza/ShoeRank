@@ -3,7 +3,7 @@ class BrandsController < ApplicationController
 
 
   def index
-    @brands = Brand.alpha
+    @brands = Brand.all
   end
 
 end
