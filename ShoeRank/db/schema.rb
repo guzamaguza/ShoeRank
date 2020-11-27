@@ -10,62 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_044032) do
+ActiveRecord::Schema.define(version: 2020_09_20_062802) do
 
-  create_table "contests", force: :cascade do |t|
-    t.string "stakes"
-    t.string "status"
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.string "class"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "games", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
     t.string "title"
-    t.string "datetime_of_start"
-    t.string "datetime_of_end"
-    t.string "location"
-    t.string "timezone"
-    t.string "match_status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "questions", force: :cascade do |t|
-    t.string "q_num"
     t.string "content"
-    t.string "answer"
-    t.string "correct_answer"
-    t.datetime "datetime_qstart"
-    t.datetime "datetime_required"
-    t.datetime "datetime_submitted"
-    t.string "accepted"
-    t.string "result"
-    t.integer "game_id"
+    t.integer "user_id"
+    t.integer "shoe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_questions_on_game_id"
+    t.index ["shoe_id"], name: "index_reviews_on_shoe_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "regs", force: :cascade do |t|
-    t.string "datetime_registered"
-    t.string "approved"
-    t.string "w_or_l"
+  create_table "shoes", force: :cascade do |t|
+    t.string "model"
+    t.string "type"
+    t.string "description"
+    t.integer "brand_id"
     t.integer "user_id"
-    t.integer "contest_id"
-    t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["contest_id"], name: "index_regs_on_contest_id"
-    t.index ["game_id"], name: "index_regs_on_game_id"
-    t.index ["user_id"], name: "index_regs_on_user_id"
+    t.index ["brand_id"], name: "index_shoes_on_brand_id"
+    t.index ["user_id"], name: "index_shoes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.integer "total_points"
-    t.integer "win_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

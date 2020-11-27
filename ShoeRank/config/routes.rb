@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
   resources :reviews
-
+  resources :brands
   resources :shoes do
     resources :reviews, only: [:new, :index]
   end

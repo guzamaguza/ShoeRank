@@ -5,7 +5,7 @@ before_action :redirect_if_not_logged_in
 
   def new
     @shoe = Shoe.new
-    @shoe.build_brand
+    #@shoe.build_brand
   end
 
   def create
