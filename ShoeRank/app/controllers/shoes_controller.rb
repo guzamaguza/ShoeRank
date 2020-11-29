@@ -34,9 +34,9 @@ before_action :redirect_if_not_logged_in
   end
 
   def update
-    if @shoe.update(ice_cream_params)
-      @shoe.image.purge
-      @shoe.image.attach(params[:shoe][:image])
+    if @shoe.update(shoe_params)
+      #@shoe.image.purge
+      #@shoe.image.attach(params[:shoe][:image])
       redirect_to shoe_path(@shoe)
     else
       render :edit

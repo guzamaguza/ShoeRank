@@ -1,5 +1,5 @@
 <% if @shoe %>
-  <h1>Reviews for <%= @shoe.flavor%> - <%= @shoe.brand_name%></h1>
+  <h1>Reviews for Shoe Model: <%= @shoe.model%> Brand: <%= @shoe.brand_name%></h1>
 <% else %>
   <h1>All the Reviews </h1>
 <% end %>
@@ -8,7 +8,7 @@
 <% @reviews.each do |review| %>
 
   <li>
-    <%= @review.shoe.flavor%>: <%= link_to @review.title, review_path(review)%> - <%= @review.rating%>
+    <%= review.shoe.model%>: <%= link_to review.title, review_path(review)%> - <%= review.rating%>
   </li> <br>
 
 <% end %>
