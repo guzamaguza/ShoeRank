@@ -3,6 +3,6 @@
 <h3>Here are the shoes reviewed by <%=@user.username%>:</h3>
 <ul>
   <% @user.reviewed_shoes.each do |shoe|%>
-  <li> <%= link_to shoe.model_and_brand, shoe_path(shoe)%> </li>
+  <li> <%= link_to shoe.model, shoe_path(shoe)%> </li>
   <% end %>
 </ul>
