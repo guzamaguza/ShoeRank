@@ -4,9 +4,7 @@
 
   <h2><%= link_to shoe.model, shoe_path(shoe.id)%> - <%= shoe.brand.name %> </h2>
   <%= link_to "Write a review", new_shoe_review_path%>
-  <% if shoe.image.attached? %>
-    <%= image_tag url_for(shoe.thumbnail)%>
-  <% end %>
+
   <div>
     <p><%= shoe.description %></p>
   </div>

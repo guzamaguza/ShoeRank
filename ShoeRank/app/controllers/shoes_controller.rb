@@ -13,8 +13,8 @@ before_action :redirect_if_not_logged_in
      @shoe.user_id = session[:user_id]
 
     if @shoe.save #this is where validations happen
-      @shoe.image.purge
-      @shoe.image.attach(params[:shoe][:image])
+      #@shoe.image.purge
+      #@shoe.image.attach(params[:shoe][:image])
       redirect_to shoe_path(@shoe)
     else
       @shoe.build_brand
@@ -27,6 +27,7 @@ before_action :redirect_if_not_logged_in
   end
 
   def show
+    @user = current_user
   end
 
   def edit
@@ -45,7 +46,7 @@ before_action :redirect_if_not_logged_in
   private
 
   def shoe_params
-    params.require(:shoe).permit(:description, :brand_id, brand_attributes: [:name])
+    params.require(:shoe).permit(:model, :description, :brand_id, brand_attributes: [:name])
   end
 
   def set_shoe

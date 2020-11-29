@@ -1,6 +1,4 @@
-
-
-<% form_for(@shoe) do |f|%>
+<%= form_for(@shoe) do |f|%>
 
   <div>
     <%= f.label :model %>
@@ -8,7 +6,7 @@
   </div>
   <div>
     <%= f.label :type %>
-    <%= f.file_field :type %>
+    <%= f.select(:type, [[:include_blank => "Placeholder"],['Athletic', 1], ['Casual', 2], ['Dress', 3]]) %>
   </div>
   <div>
     <%= f.label :description %>
