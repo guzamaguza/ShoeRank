@@ -1,12 +1,13 @@
-<h1>All the Shoes</h1>
+<h1>All the Shoes:</h1>
 
-<% @shoes.each do |shoe| %>
+<% @shoes.each_with_index do |shoe, index| %>
 
-  <h2><%= link_to shoe.model, shoe_path(shoe.id)%> - <%= shoe.brand.name %> </h2>
-  <%= link_to "Write a review", new_shoe_review_path%>
+  <h2> <%=index + 1%>)<%= link_to shoe.model, shoe_path(shoe.id)%>, Brand: <%= shoe.brand.name %> </h2>
 
   <div>
-    <p><%= shoe.description %></p>
+    <p>Description: <%= shoe.description %></p>
   </div>
+
+  <%= link_to "Write a review", new_shoe_review_path(shoe.id, :shoe_id)%>
 
 <% end %>
